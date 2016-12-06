@@ -1,0 +1,165 @@
+head	1.3;
+access;
+symbols
+	v2_3:1.2
+	v2_1:1.2;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2016.04.15.23.19.09;	author sherbert;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2014.12.05.21.47.32;	author sherbert;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.06.09.22.33.32;	author sherbert;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@now using argparse
+@
+text
+@'''
+Created 06/09/14
+
+Retrieves a specific document in XML format
+
+@@author: Sherbert/Mroch
+'''
+import argparse
+import os
+import sys
+
+# Tethys 3rd party module
+import requests
+
+# Tethys specific modules
+import client_server
+
+import pdb
+
+
+UNSUPPORTED = 10
+
+usage = """
+Retrieve a specific document in XML format
+"""
+
+def main():
+    parser = argparse.ArgumentParser(description=usage)
+    
+    client_server.add_client_opts(parser)
+    parser.add_argument('collection',metavar='Collection',
+                        help='Collection containing the target document.')
+    parser.add_argument("--docid", type=str, default=None,
+                      help="".join([
+                      "name of the document of interest"]))
+    parser.add_argument("--outpath", type=str, default=None,
+                      help="".join([
+                      "The path to save the retrieved XML document"]))
+    
+    options = parser.parse_args()
+    collection = options.collection
+    
+    if not collection:
+        print "Error: Must specify which collection to retrieve document from"
+    if not options.docid:
+        print "Error: Missing Document ID, exiting"
+        sys.exit()
+    if not options.outpath:
+        print "Error: Missing output path, exiting"
+        sys.exit()
+        
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+    
+    print "Connecting to server:  %s %s..." % (server_url, description)
+    if options.servertype == "REST":
+        url = server_url +"/%s/?DocId=%s" % (collection,options.docid)
+        result = requests.get(url)
+        
+        if result.status_code != requests.codes.ok:
+            print "Error code %d\n%s\n"%(result.status_code, result.text)
+            sys.exit(result.status_code)
+        else:
+            print "Document Retrieved. Saving..."
+            outfile = os.path.join(options.outpath,options.docid+'.xml')
+            try:
+                f = open(outfile,'w')
+                f.write(result.text)
+                f.close()
+                print "Complete; view at "+outfile
+            except IOError, e:
+                print "I/O error({0}): {1}".format(e.errno, e.strerror)
+
+    else:
+        print "Unsupported server type:  %s"%(options.servertype)
+        sys.exit(UNSUPPORTED)
+            
+@
+
+
+1.2
+log
+@fixed docstring and usage string
+@
+text
+@d8 1
+a8 1
+import optparse
+a23 1
+%prog [options] Collection
+d28 1
+a28 1
+    parser = optparse.OptionParser(usage)
+d31 3
+a33 1
+    parser.add_option("--docid", type="string", default=None,
+d36 1
+a36 1
+    parser.add_option("--outpath", type="string", default=None,
+d40 2
+a41 1
+    (options, args) = parser.parse_args()
+d43 1
+a43 4
+    if len(args) > 1:
+        print "Error: Can only retrieve from a single collection"
+        sys.exit()
+    elif len(args)<1:
+a44 1
+        sys.exit()
+d58 1
+a58 1
+        url = server_url +"/%s/?DocId=%s" % (args[0],options.docid)
+a78 2
+    
+main()@
+
+
+1.1
+log
+@retrieves a document from tethys and saves it as xml
+@
+text
+@d1 2
+d4 4
+d25 1
+a25 1
+Instruct server to begin shutdown
+@
+

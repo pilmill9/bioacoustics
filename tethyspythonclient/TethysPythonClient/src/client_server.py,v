@@ -1,0 +1,339 @@
+head	1.5;
+access;
+symbols
+	v2_3:1.3
+	v2_1:1.3;
+locks; strict;
+comment	@# @;
+
+
+1.5
+date	2016.04.20.22.39.32;	author sherbert;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2016.04.15.23.19.01;	author sherbert;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2014.05.21.20.19.43;	author sherbert;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2014.01.23.13.35.08;	author mroch;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.02.02.50.42;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@fixed set_port
+@
+text
+@'''
+Created on Feb 6, 2010
+
+Implemented argparse over deprecated optparse module
+by sherbert 4/14/2016
+
+@@author: mroch
+'''
+
+import argparse
+import os
+import re
+import pdb
+
+import xml.dom.minidom
+from xml.dom.minidom import Node
+
+# user modules
+import socket
+import urllib
+
+# We need to determine the IP
+# Use a web-based script to get the address if we are behind a router
+checkip = "http://roch.sdsu.edu/report_client_ip.shtml?nocache=1"
+    
+localhost_ip = "127.0.0.1"
+
+# The following are default addresses that can be overridden by
+# the client or by populating a default_server.xml file which has
+# the following format:
+#
+# <Server>
+#  <Name>yourserver.yourdomain</Name>
+#  <Port>9779</Port>
+#  (: NAT_IP is only necessary when the server is connected to a switch
+#     providing network address translation.  When this is true, the server
+#     will have an IP in the private network range:  192.168.x.x or 10.x.x.x
+#   :)
+#  <NAT_IP>192.168.0.101</NAT_IP>
+# </Server>
+
+defaults = {
+            "Name": "localhost",
+            "NATIP": "192.168.0.101",
+            "Port": 9779, 
+            "SSL": False,
+            "Transactional": True, # Never should be anything else
+            "ServerType" : "REST",
+            "Resources" : "C:\Users\Tethys\metadata",
+            }
+
+
+def verify_server_protocol(value):
+    server_protocols = ["REST", "xmlrpc"]
+    if value in server_protocols:
+        return value
+    else:
+        raise argparse.ArgumentError(
+            "%s must be in [%s]"%(value, ", ".join(server_protocols)))
+
+re_true = re.compile("[yYtT].*")
+re_false = re.compile("[nNfF].*")
+
+# callbacks for option parsing
+def set_port(value):
+    value = int(value)
+    # Valid port number?
+    if value >=1024 and value <= 65535:
+        return value
+    else:
+        raise argparse.ArgumentError("Port must be between 1024-65535")
+ 
+def true_false(value):
+    # Determine if user passed in valid true/false argument
+    boolean = None
+    if re_true.match(value):
+        boolean = True
+    elif re_false.match(value):
+        boolean = False
+    else:
+        # apparently they did not...
+        raise argparse.ArgumentError(
+            "option '%s' must be a boolean value (e.g. true/false"%(value))
+    return boolean  # store option value
+    
+    
+def get_url(server_addr, port, ssl=True):
+    "Construct URL for communicating with server"
+    
+    if server_addr == "localhost":
+        server_addr = localhost_ip
+
+    # Construct http connection as plaintext or encrypted
+    result = None
+    if ssl == True:
+        result = ("https://%s:%s"%(server_addr, port), "secure socket layer")
+    else:
+        result = ("http://%s:%s"%(server_addr, port), "plain text (UNSECURED)")
+    return result
+
+    
+def __add_common_opts(parser):
+
+    # Parse XML file if it exists to find defaults
+    
+    parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    paramfile = os.path.join(parentdir, "ServerDefault.xml")
+    
+    try:
+        xmldoc = xml.dom.minidom.parse(paramfile)
+        
+    except Exception:
+        print "Warning:  Unable to open or parse default file:  %s"%(paramfile)
+        xmldoc = None
+        
+    if xmldoc != None:        
+        for n in ["Name", "IP", "NATIP", "Port"]:
+            try:
+                node = xmldoc.getElementsByTagName(n)[-1]
+                value = "".join([t.data for t in node.childNodes 
+                    if t.nodeType == xml.dom.minidom.Node.TEXT_NODE])
+                defaults[n] = value
+            except Exception:
+                pass        
+    
+    parser.add_argument("-s", "--secure-socket-layer", type=true_false,
+                      dest = "secure_socket_layer", default = defaults["SSL"],
+                      help="Use encrypted communication (true/false)? " +
+                      "encrypted-->https:// unencrypted-->http:// " +
+                      "(default %(default)s)")
+    parser.add_argument("--port", type=set_port, default=defaults["Port"], 
+                      help="port to run on (default=%(default)s)")
+    parser.add_argument("--servertype", type=verify_server_protocol,
+                      dest="servertype", default=defaults["ServerType"],
+                      help="Server type xmlrpc, REST (default= %(default)s)")
+    
+def add_server_opts(parser):
+    __add_common_opts(parser)
+    parser.add_argument("-t", "--transactional", type=true_false,
+                      dest = "transactional", default = defaults["Transactional"],
+                      help="Use transaction processing (default = %(default)s)? ")
+    parser.add_argument("-d", "--database", type=str,
+                      action="store", default=None,
+                      help="Directory (folder) name where the XML database will " + 
+                      "be stored (must exist). Most users wishing to specify "
+                      "-d should probably use the -r switch instead.")
+    parser.add_argument("-r", "--resourcedir", type=str,
+                      action="store", default= defaults["Resources"], 
+                      help="Set Tethys's resource directory (folder).  " +
+                      "This is the parent directory for all data " +
+                      "used by Tethys including the XML database.  ")
+
+def add_client_opts(parser):
+    __add_common_opts(parser)
+
+    # Determine where the server is running.  The default address
+    # will depends on whether our client is on the same NAT network
+    # as the server or a different one.
+    server_ip = None  # put in scope
+    my_wan_ip = None
+    
+    try:
+        server_ip = socket.gethostbyname(defaults["Name"])
+    except Exception:
+        print "Unable to resolve %s (default server) to IP address"%(defaults["Name"])
+    try:
+        my_wan_ip = urllib.urlopen(checkip).read()
+    except Exception:
+        my_wan_ip = ""
+        print "Unable to determine client wide area network IP"
+        
+    if server_ip == my_wan_ip:
+        # On the same NAT network or same machine
+        my_local_ip = socket.gethostbyname_ex(socket.gethostname())[2][0]
+        if my_local_ip != my_wan_ip or my_local_ip == defaults["NATIP"]:
+            # directly plugged into the Internet, or we are running on
+            # the machine we expect the server to be on. 
+            default_ip = (localhost_ip, "%s: local host"%(localhost_ip))
+        else:
+            default_ip = (defaults["NATIP"], 
+                          "%s on local NAT network"%(defaults["NATIP"]))
+    else:
+        default_ip = (server_ip, "%s -> %s"%(defaults["Name"], server_ip))
+        
+    parser.add_argument("--server", default=default_ip[0],
+                      help="Server name (default= %(default)s)")
+
+@
+
+
+1.4
+log
+@now using argparse
+@
+text
+@d66 1
+d69 1
+a69 1
+        return int(value)
+@
+
+
+1.3
+log
+@changed default from beluga to localhost
+@
+text
+@d4 3
+d10 1
+a10 1
+import optparse
+d53 1
+a53 1
+def verify_server_protocol(option, opt_str, value, parser):
+d56 1
+a56 1
+        setattr(parser.values, option.dest, value)
+d58 2
+a59 2
+        raise optparse.OptionValueError(
+            "%s must be in [%s]"%(opt_str, ", ".join(server_protocols)))
+d65 1
+a65 1
+def set_port(option, opt_str, value, parser):
+d68 1
+a68 1
+        setattr(parser.values, option.dest, value)
+d70 1
+a70 1
+        raise optparse.OptionValueError("Port must be between 1024-65535")
+d72 1
+a72 1
+def true_false(option, opt_str, value, parser):
+d81 3
+a83 3
+        raise optparse.OptionValueError(
+            "%s must have a boolean value (e.g. true/false"%(opt_str))
+    setattr(parser.values, option.dest, boolean)  # store option value
+d125 1
+a125 2
+    parser.add_option("-s", "--secure-socket-layer", type="string",
+                      action="callback", callback=true_false,
+d129 4
+a132 6
+                      "(default %default)")
+    parser.add_option("--port", type="int", action="callback", 
+                      callback=set_port, default=defaults["Port"], 
+                      help="port to run on (default=%default)")
+    parser.add_option("--servertype", type="string", 
+                      action="callback", callback=verify_server_protocol,
+d134 2
+a135 3
+                      help="Server type xmlrpc, REST (default %s)"%(
+                            defaults["ServerType"]))
+                      
+d138 1
+a138 2
+    parser.add_option("-t", "--transactional", type="string",
+                      action="callback", callback=true_false, 
+d140 2
+a141 2
+                      help="Use transaction processing (true*/false)? ")
+    parser.add_option("-d", "--database", type="string",
+d146 1
+a146 1
+    parser.add_option("-r", "--resourcedir", type="string",
+d184 2
+a185 2
+    parser.add_option("--server", type="string", default=default_ip[0],
+                      help="Server name (defaults to %s)"%(default_ip[1]))
+@
+
+
+1.2
+log
+@added default directory for Resources
+@
+text
+@d40 1
+a40 1
+            "Name": "beluga.ucsd.edu",
+@
+
+
+1.1
+log
+@new
+@
+text
+@d46 1
+d149 1
+a149 1
+                      action="store", default=None, 
+@
+

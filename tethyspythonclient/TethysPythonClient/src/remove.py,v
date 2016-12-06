@@ -1,0 +1,154 @@
+head	1.3;
+access;
+symbols
+	v2_3:1.2
+	v2_1:1.2;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2016.04.15.23.19.34;	author sherbert;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2014.02.13.00.59.47;	author sherbert;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.12.23.17.53.35;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@now using argparse
+@
+text
+@'''
+Created on May 23, 2012
+
+@@author: mroch
+'''
+
+
+from base64 import b64encode
+import getpass
+import argparse
+import os
+import xmlrpclib
+import requests
+
+# Tethys specific modules
+import client_server
+
+import pdb
+
+usage = """
+Tethys remove a document by name
+"""
+def main():
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
+                                     description = usage)
+    parser.add_argument('collection',metavar='Collection',
+                        help='Collection containing the target document.')
+    parser.add_argument("docid", metavar='DocumentID',
+                      help="".join([
+                      "name of the document of interest"]))
+    
+    client_server.add_client_opts(parser)
+    
+    options = parser.parse_args()
+    
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+    
+    print "Connecting to server:  %s %s..." % (server_url, description)
+    
+    if options.servertype == 'REST':
+        collection = options.collection
+        docname = options.docid
+        url = server_url +"//%s/?DocId=%s"%(collection,docname)
+        
+        result = requests.delete(url)
+        if result.status_code != requests.codes.ok:
+            print '%s error ocurred:\n'%(result.status_code)
+            print result.text
+        else:
+            print result.text
+            
+    
+main()
+@
+
+
+1.2
+log
+@updated for REST
+@
+text
+@d10 1
+a10 1
+import optparse
+a20 1
+%prog [options] collection documentname
+d24 7
+a30 1
+    parser = optparse.OptionParser(usage)
+d34 1
+a34 3
+    (options, args) = parser.parse_args()
+    if len(args) != 2:
+        parser.error("Must specify collection and document name")
+a40 2
+    if options.servertype == "xmlrpc":
+        server = xmlrpclib.Server(server_url)
+d42 3
+a44 13
+        print "Transmitting request..." 
+        try:
+            server.remove_document(args[0], args[1])
+        except Exception, e:
+            val = str(e)
+
+        print val
+        lines = val.split("\n")
+        raise RuntimeError(lines[0])
+    
+    elif options.servertype == "REST":
+        collection = args[0]
+        docname= args[1]
+d49 1
+a49 2
+            print '%s error ocurred:\n'
+            print result.status_code
+@
+
+
+1.1
+log
+@new
+@
+text
+@d13 1
+d38 2
+a39 1
+    server = xmlrpclib.Server(server_url)
+d41 5
+a45 5
+    print "Transmitting request..." 
+    try:
+        server.remove_document(args[0], args[1])
+    except Exception, e:
+        val = str(e)
+d51 14
+@
+

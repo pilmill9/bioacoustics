@@ -1,0 +1,99 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2016.04.15.23.18.37;	author sherbert;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.02.09.23.17.40;	author sherbert;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@now using argparse
+@
+text
+@import argparse
+import os
+import sys
+
+# Tethys 3rd party module
+import requests
+
+# Tethys specific modules
+import client_server
+
+import pdb
+
+
+UNSUPPORTED = 10
+
+usage = """
+Instruct server to log benchmarks
+"""
+def main():
+    parser = argparse.ArgumentParser(description=usage)
+    
+    client_server.add_client_opts(parser)
+    parser.add_argument('enabled',metavar='Enable',type=str, help='Turn on/off performance monitor (true|false)')
+    
+    options = parser.parse_args()
+    
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+    
+
+    print "Connecting to server:  %s %s..." % (server_url, description)
+    if options.servertype == "REST":
+        url = server_url +"/Tethys/performance_monitor/" + options.enabled     
+        result = requests.put(url)
+        
+        if result.status_code != requests.codes.ok:
+            print "Error code %d\n%s\n"%(result.status_code, result.text)
+            sys.exit(result.status_code)
+        else:
+            print result.text
+    else:
+        print "Unsupported server type:  %s"%(options.servertype)
+        sys.exit(UNSUPPORTED)
+            
+    
+main()@
+
+
+1.1
+log
+@client script to enable/disable benchmark logging
+@
+text
+@d1 1
+a1 1
+import optparse
+a16 1
+%prog [options] true|false
+d20 1
+a20 1
+    parser = optparse.OptionParser(usage)
+d23 1
+d25 1
+a25 1
+    (options, args) = parser.parse_args()
+d31 1
+d34 1
+a34 1
+        url = server_url +"/Tethys/performance_monitor/" + args[0]      
+@
+

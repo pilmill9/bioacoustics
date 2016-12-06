@@ -1,0 +1,156 @@
+head	1.3;
+access;
+symbols
+	v2_3:1.2
+	v2_1:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2016.04.15.23.18.53;	author sherbert;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2015.04.23.20.16.10;	author sherbert;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.02.02.50.42;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@now using argparse
+@
+text
+@'''
+Created on May 23, 2012
+
+@@author: mroch
+'''
+
+# updates the itis collection from source document archive
+
+import argparse
+import xmlrpclib
+
+# site modules
+import requests
+
+# Tethys specific modules
+import client_server
+
+import pdb
+
+usage = """
+    Clear documents in the specified collection(s).
+    All source documents related to the container will be moved to the DeletedArchive folder.
+    Any files sharing names in the DeletedArchive will be overwritten.
+    In other words, only the most recently deleted files are archived.
+    USE WITH CAUTION"""
+
+def main():
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
+                                     description = usage)
+    parser.add_argument('collection',metavar='Collection',nargs='+',
+                        help='Destination container(s) for the operation.')
+    
+    client_server.add_client_opts(parser)
+    options = parser.parse_args()
+    
+    collections = options.collection
+    if not collections:
+        print "Please specify a document container."
+        return
+        
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+        
+    print "Connecting to server:  %s %s" % (server_url, description)
+    server = xmlrpclib.Server(server_url)
+
+
+    if options.servertype == "REST":
+        msgparams = {}
+        msgparams['DocId'] = "<*clear*>"  # delete all documents
+        for c in collections:
+            # DELETE all items in each resource.
+            result = requests.delete(server_url + "/%s"%(c), params = msgparams)
+            if result.status_code != requests.codes.ok:
+                print 'error ocurred: ', result.status_code
+            else:
+                print c
+                print result.text
+            
+main()
+@
+
+
+1.2
+log
+@annotation updated. condition check for container name
+@
+text
+@d9 1
+a9 1
+import optparse
+d20 2
+a21 3
+def main():
+    parser = optparse.OptionParser("""%prog collection1 collection2 ... collectionN
+    Clear documents in the specified collections.
+d24 8
+a31 2
+    In other words, only the most recently deleted files are stored.
+    USE WITH CAUTION""")
+d34 1
+a34 1
+    (options, args) = parser.parse_args()
+d36 2
+a37 1
+    if not args:
+d48 2
+a49 8
+    if options.servertype == "xmlrpc":
+        for s in args:
+            try:
+                print server.container_clear(s)
+            except Exception, e:
+                msg = str(e).replace('\\n', '\n').replace('\\\\', '\\')
+                print msg
+    elif options.servertype == "REST":
+d52 1
+a52 1
+        for s in args:
+d54 1
+a54 1
+            result = requests.delete(server_url + "/%s"%(s), params = msgparams)
+d58 1
+a58 1
+                print s
+@
+
+
+1.1
+log
+@new
+@
+text
+@d23 4
+a26 3
+    This will not remove any source documents used to build the collection,
+    but it will remove ALL documents from the specified collections and
+    should be used with caution.""")
+d30 4
+@
+

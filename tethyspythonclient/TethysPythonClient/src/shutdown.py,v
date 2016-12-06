@@ -1,0 +1,96 @@
+head	1.2;
+access;
+symbols
+	v2_3:1.1
+	v2_1:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2016.04.15.23.19.34;	author sherbert;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.02.20.16.12.34;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@now using argparse
+@
+text
+@
+import argparse
+import os
+import sys
+
+# Tethys 3rd party module
+import requests
+
+# Tethys specific modules
+import client_server
+
+import pdb
+
+
+UNSUPPORTED = 10
+
+usage = """
+Instruct server to begin shutdown
+"""
+def main():
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
+                                     description = usage)
+    
+    client_server.add_client_opts(parser)
+    
+    options= parser.parse_args()
+    
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+    
+    print "Connecting to server:  %s %s..." % (server_url, description)
+    if options.servertype == "REST":
+        url = server_url +"/Tethys/shutdown"      
+        result = requests.put(url)
+        
+        if result.status_code != requests.codes.ok:
+            print "Error code %d\n%s\n"%(result.status_code, result.text)
+            sys.exit(result.status_code)
+        else:
+            print result.text
+    else:
+        print "Unsupported server type:  %s"%(options.servertype)
+        sys.exit(UNSUPPORTED)
+            
+    
+main()@
+
+
+1.1
+log
+@new
+@
+text
+@d2 1
+a2 1
+import optparse
+a17 1
+%prog [options] 
+d21 2
+a22 1
+    parser = optparse.OptionParser(usage)
+d26 1
+a26 1
+    (options, args) = parser.parse_args()
+@
+

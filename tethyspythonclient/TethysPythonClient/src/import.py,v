@@ -1,0 +1,735 @@
+head	1.9;
+access;
+symbols
+	v2_3:1.8
+	v2_1:1.7;
+locks; strict;
+comment	@# @;
+
+
+1.9
+date	2016.04.15.23.19.34;	author sherbert;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2016.01.11.23.26.48;	author sherbert;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2014.02.13.21.38.10;	author sherbert;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2014.02.13.01.00.12;	author sherbert;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2014.02.11.19.48.26;	author mroch;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2014.01.28.16.05.50;	author mroch;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2014.01.23.13.34.03;	author mroch;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2013.12.23.17.53.22;	author mroch;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.02.02.50.42;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.9
+log
+@now using argparse
+@
+text
+@'''
+Created on May 23, 2012
+
+@@author: mroch
+'''
+
+
+from base64 import b64encode
+import getpass
+import mimetypes
+import argparse
+import os
+import xmlrpclib
+import sys
+
+import xml.dom.minidom
+from xml.dom.minidom import Node
+
+# Python extension modules
+import requests
+import xpath
+
+# Tethys specific modules
+import client_server
+import mime
+
+import pdb
+
+errexit = 5
+
+requestb = "http://requestb.in/sxodgbsx"
+requestDebug = False
+
+usage = """
+Tethys data import
+Add a datasource to a collection.
+
+Datasources are local to the client (--file) or accessible from the server, 
+depending upon the type of data.  
+
+Local data sources:
+    MicrosoftExcel or other Excel compatible workbook
+    csv (comma seperated value list)
+    XML (Extended markup language document) - XML documents are assumed
+      to conform to the database schema and no translation will be done.
+
+    
+If the collection is one of the standard Tethys collections and
+the datasource is local, a copy of the source document will be
+archived on the server.  
+
+Standard collections:  Detections, Deployments, Ensembles, 
+  itis, Localizations, and SourceMaps. 
+"""
+def main():
+    parser = argparse.ArgumentParser( formatter_class=argparse.RawDescriptionHelpFormatter, description=usage)
+    
+    client_server.add_client_opts(parser)
+    parser.add_argument('collection',metavar='Collection',help='Desitination container for the submission.')
+    parser.add_argument("--file", action='store', default=None,
+                      help="".join([
+                      "file can be used for any file that is specified on the ",
+                      "command line such as a local Excel, CSV, XML, or Access", 
+                      "document."]))
+    parser.add_argument("--ConnectionString", action='store', default=None, 
+                      help="".join([
+                      "Open database connection string.  Can be used for ",
+                      "connecting to any data source with an ODBC driver.  "
+                      "See manual for details as well as ",
+                      "http://www.connectionstrings.com for information.  To ",
+                      "prompt for a password, use password=<*Password*> in the connection",
+                      "string."]))
+    parser.add_argument("--speciesabbreviations", action='store', default='',
+                      help="Name of species abbreviation map")
+    parser.add_argument("--sourcemap", action='store', default='', 
+                      help="".join([
+                      "Map name from SourceMaps collection.  May be omitted ",
+                      "if it is not needed (e.g. XML).  Sourcemaps either use ",
+                      "<Table> or <Sheet> directives.  <Sheet> directives are ",
+                      "used whenever there is no --ODBC option and assume ",
+                      "that the data consists of row oriented data.  In ",
+                      "contrast, <Table> permits richer queries to data ",
+                      "sources that can be treated as relational databases."]))
+    parser.add_argument("--overwrite", type=client_server.true_false, default=False,
+                      help="Overwrite an existing resource?")
+        
+    options = parser.parse_args()
+    
+    if not options.collection:
+        parser.ArgumentError("Collection was not specified")
+    else:
+        collection = options.collection
+
+    # Establish connection to server
+    (options.url, options.urlDescription) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+
+    print "<!-- server:  %s %s -->" % (options.url, options.urlDescription)
+
+    if options.file != None:
+       # file to mimetype
+       if "," in options.file:
+           parser.error("Filename cannot contain a comma")
+       (mimetype, encoding) = mime.getMimeType(options.file)
+       
+       if options.servertype == "xmlrpc":
+           xmlrpc_send(collection, options, mimetype, encoding)
+       elif options.servertype == "REST":
+           rest_send(collection, options, mimetype, encoding)
+    else:
+        if options.ConnectionString == None:
+            parser.error("".join(["When --file is not specified, ",
+            "--connectionstring must specify a networked (or server ",
+            "accessible resource"]))
+        else:
+           if options.servertype == "xmlrpc":
+               xmlrpc_odbc(options)
+           elif options.servertype == "REST":
+               rest_send(collection, options, None, None)
+               
+def get_password(str):
+    """password - Prompt for password if place holder is present in str.
+        Returns str with user password"""
+        
+    promptpw = "Password=<*Password*>;"
+    if promptpw in str:
+        password = getpass.getpass("Password:  ")
+        str = str.replace(promptpw, "Password=%s;"%(password))
+    return str
+
+def rest_send(collection, options, mimetype, encoding):
+    
+    specification_xml ='<?xml version="1.0" encoding="UTF-8"?><import><docname/><overwrite>%s</overwrite><species_map>%s</species_map><source_map>%s</source_map><sources><source><type>file</type><file>%s</file></source></sources></import>'
+    
+    
+    
+    
+    debug = False
+
+    url = options.url
+
+    # Convert booleans appropriately
+    boolmap = {False: u'0', True: u'1'}
+
+    params = {}
+    if options.speciesabbreviations:
+        params['species_abbr'] = options.speciesabbreviations            
+    if options.sourcemap: 
+        params['import_map'] = options.sourcemap
+    params['overwrite'] = boolmap[options.overwrite]
+    url = url + "/%s"%(collection)
+    if options.file:
+        
+        #format the specification xml
+        specification_xml = specification_xml%(options.overwrite,options.speciesabbreviations,options.sourcemap, os.path.basename(options.file))
+        params['specification'] = specification_xml
+        
+        
+        # User is sending some type of file (spreadsheet, mdb, etc.)
+        url = url + "/import"
+
+        try:
+            f = open(options.file, 'rb')
+        except Exception, e:
+            raise ValueError("Unable to open file %s"%(options.file))
+    
+        fbasename = os.path.basename(options.file)
+        [fdocId, _] = os.path.splitext(fbasename)
+        fpath = os.path.dirname(options.file)
+        
+        files = {fbasename : (fbasename, open(options.file, 'rb'), mimetype)}
+
+    else:
+        url = url + "/ODBC"
+        f = None
+        files = None
+
+    if options.ConnectionString != None:
+        params['ConnectionString'] = get_password(options.ConnectionString)
+    r = requests.post(url, params=params, files=files)
+    
+    if r.status_code == requests.codes.bad:
+        dom = None
+        try:
+            dom = xml.dom.minidom.parseString(r.text)
+        except Exception, e:
+            # Unable to parse the result, just print it
+            print r.text
+            print "--- Unable to parse server response, exiting... ---"
+            print e
+            sys.exit(errexit)
+        else:
+            xqry = "//Import/Document/*[not(self::Media/Missing) and not(self::Media/Warnings)]"
+            otherprobs = xpath.findvalue(xqry, dom)
+            if otherprobs != None:
+                print r.text
+                sys.exit(errexit)
+            else:
+                missing = get_attachment_list(files, dom)
+                attach(files, missing, fdocId, fpath)
+                # XML data document was already sent which means that the
+                # open file was read.  Rewind to beginning.
+                files["data"][1].seek(0)
+                r = requests.post(url, params=params, files=files)
+                print r.text
+                if r.status_code == requests.codes.bad:
+                    sys.exit(errexit)
+    else:
+        print r.text
+
+    
+def get_attachment_list(files, dom):
+    
+    missing = {}
+    mediatypes = xpath.find('//Import/Document/Media/Missing/*', dom)
+    # Elements underneath Missing indicate the media type (e.g. Audio)
+    # and a list of File elements.  Pull out the File elements for each type
+    # and save them.
+    for n in mediatypes:  # for each type of missing media
+        mediatype= n.nodeName
+        if not missing.has_key(mediatype):
+            missing[mediatype] = []
+        attachments = xpath.findvalues('File', n)
+        missing[mediatype].extend(attachments)
+        
+    return missing
+
+def attach(files, filelist, docid, basedir):
+    """attach(files, filelist, basename, basedir) - Add the specified files
+    files - Dictionary of data to be passed to server, new files are
+        added as AttachmentN.
+    filelist - dictionary of different types of files.  Each type has a list
+        of filenames.
+    docid - document identifier for XML document that these files are to be 
+        associated with
+    basedir - Location of document docid in the file system.  Attachments
+        are expected to be in one of the following directories:
+        [basedir-type, basedir-attach/type] where type is a filelist dictionary key.
+    """
+    
+    count = 1
+    missing = []
+    for atype in filelist.keys():
+        # Build list of directories where attachments might be relative
+        # to the basedir
+        dirs = filter(os.path.exists,
+                      [os.path.join(basedir,  docid + '-' + atype),
+                       os.path.join(basedir, docid+'-attach', atype)])
+        for fname in filelist[atype]:
+            # Find file
+            found = False
+            idx = 0
+            pathtofname = None
+            while not found and idx < len(dirs):
+                pathtofname = os.path.join(dirs[idx], fname)
+                if os.path.exists(pathtofname):
+                    found = True
+                else:
+                    idx = idx + 1
+            if not found:
+                missing.append(fname)
+            else:
+                # attach the file
+                (mimetype, encoding) = mime.getMimeType(pathtofname)
+                files['Attachment%d'%(count)] = \
+                  (os.path.basename(pathtofname), 
+                   open(pathtofname, 'rb'), mimetype)
+                count = count + 1
+
+def rest_post(url, params):
+    "POST to REST server"
+    result = request.post(url, params)
+    
+    if result.status_code != requests.codes.ok:
+        print 'error ocurred: %d'%(result.status_code)
+        print result.text
+    else:
+        dom = xml.dom.minidom.parseString(results.text)
+        print result.text
+        
+    return result    
+    
+def xmlrpc_send(collection, options, mimetype, encoding):
+    "Sent a file via xmlrpc"
+    
+    # Determine datatype argument
+    datatypemap = {'application/x-msexcel':'MicrosoftExcel',
+                   'text/xml':'XML',
+                   'text/csv':'csv'}
+    datatype = None
+    try:
+        datatype = datatypemap[mimetype]
+    except KeyError:
+        raise ValueError('Unable to deduce type of file to transmit')
+    
+    # Read in the file and encode it for transmission in XML
+    fileH = open(options.file, 'rb')
+    data = fileH.read()
+    edata = b64encode(data)
+    # Grab the basename of the file
+    [path, fname] = os.path.split(datasource)
+    datasource = "file<%s>:"%(fname) + edata
+    
+    server = xmlrpclib.Server(options.url)
+
+    connectionstr = get_password(options.ConnectionString)
+    print "Transmitting request..." 
+    try:
+        server.import_data(
+            collection, datatype, datasource, connectionstr,
+            map, options.speciesabbreviations)
+    except Exception, e:
+        val = str(e)
+
+        print val
+        lines = val.split("\n")
+        raise RuntimeError(lines[0])
+ 
+def xmlrpc_odbc(collection, options):    
+    "ODBC without a file option"
+    
+    # Establish connection to server
+    connectionstr = get_password(options.ConnectionString)
+            
+    print "Connecting to server:  %s %s..." % (options.url, description)
+    server = xmlrpclib.Server(options.url)
+
+    print "Transmitting request..." 
+    try:
+        server.import_data(
+            collection, options.datatype, datasource, connectionstr,
+            map, options.speciesabbreviations)
+    except Exception, e:
+        val = str(e)
+
+        print val
+        lines = val.split("\n")
+        raise RuntimeError(lines[0])
+    
+main()
+@
+
+
+1.8
+log
+@password prompt is now <*Password*> in cxn str
+@
+text
+@d11 1
+a11 1
+import optparse
+a34 1
+%prog [options] collection
+d56 1
+a56 1
+    parser = optparse.OptionParser(usage)
+d59 2
+a60 1
+    parser.add_option("--file", type="string", default=None,
+d65 1
+a65 1
+    parser.add_option("--ConnectionString", type="string", default="", 
+d73 1
+a73 1
+    parser.add_option("--speciesabbreviations", type="string", default="",
+d75 1
+a75 1
+    parser.add_option("--sourcemap", type="string", default=None, 
+d84 1
+a84 2
+    parser.add_option("--overwrite", type="string", default=False,
+                      action="callback", callback = client_server.true_false,
+d87 1
+a87 1
+    (options, args) = parser.parse_args()
+d89 2
+a90 4
+    if len(args) == 1:
+        collection = args[0]
+    elif len(args) == 3:
+        collection, datasource, map = args
+d92 1
+a92 1
+        parser.error("Collection was not specified")
+d132 6
+d153 6
+d160 1
+a160 1
+        url = url + "/add"
+d171 1
+a171 1
+        files = {"data" : (fbasename, open(options.file, 'rb'), mimetype)}
+@
+
+
+1.7
+log
+@basedir/type ---->> basedir-attach/type
+@
+text
+@d71 1
+a71 1
+                      "prompt for a password, use password=* in the connection",
+d128 1
+a128 1
+    promptpw = "Password=*;"
+@
+
+
+1.6
+log
+@Checks for comma in filename, throws error if true
+@
+text
+@d229 1
+a229 1
+        [basedir-type, basedir/type] where type is a filelist dictionary key.
+d239 1
+a239 1
+                       os.path.join(basedir, docid, atype)])
+@
+
+
+1.5
+log
+@changes for ODBC imports
+@
+text
+@d101 1
+a101 1
+    print "<!--- server:  %s %s -->" % (options.url, options.urlDescription)
+d105 2
+a106 1
+       
+@
+
+
+1.4
+log
+@changes for processing attachments
+@
+text
+@d60 1
+a60 1
+    parser.add_option("--file", type="string", default="MicrosoftExcel",
+d65 1
+a65 1
+    parser.add_option("--connectionstring", type="string", default="", 
+d113 1
+a113 1
+        if options.connectionstring == None:
+d120 2
+a121 2
+           elif options.servertyper == "REST":
+               rest_odbc(options)
+d135 3
+a137 20
+    
+    f = None
+    try:
+        f = open(options.file, 'rb')
+    except Exception, e:
+        raise ValueError("Unable to open file %s"%(options.File))
+    
+    fbasename = os.path.basename(options.file)
+    [fdocId, _] = os.path.splitext(fbasename)
+    fpath = os.path.dirname(options.file)
+    
+    if requestDebug:
+        url = requestb
+    else:
+        url = options.url
+        url = url + "/%s/add"%(collection)
+       
+    params = {}
+    files = {"data" : (fbasename, open(options.file, 'rb'), mimetype)}
+     
+d140 23
+a162 7
+                        
+    if True:
+        if options.speciesabbreviations:
+            params['species_abbr'] = options.speciesabbreviations            
+        if options.sourcemap: 
+            params['import_map'] = options.sourcemap
+        params['overwrite'] = boolmap[options.overwrite]
+d164 6
+a169 5
+        files['overwrite'] = (None, 
+                              boolmap[options.overwrite],  
+                              "text/plain")
+        
+    connnectionstr = get_password(options.connectionstring)
+d296 1
+a296 1
+    connectionstr = get_password(options.connectionstring)
+d313 1
+a313 1
+    connectionstr = get_password(options.connectionstring)
+@
+
+
+1.3
+log
+@able to import simple files, need to check includes, databases, etc.
+@
+text
+@d142 4
+a145 1
+
+d153 1
+a153 5
+    files = {
+            "data" : (os.path.basename(options.file),
+                          open(options.file, 'rb'),
+                          mimetype),
+            }
+a182 1
+            print r.text
+d190 4
+a193 1
+                attach(files, missing)
+d195 3
+d233 1
+a233 1
+    for atype in files.keys():
+d238 2
+a239 2
+                       os.path.join(baseidr, docid, atype)])
+        for fname in files[atype]:
+d254 1
+a254 1
+                (mimetype, encoding) = mime.getMimeType(pathtofile)
+d258 1
+@
+
+
+1.2
+log
+@added REST supprot
+@
+text
+@d101 1
+a101 1
+    print "server:  %s %s..." % (options.url, options.urlDescription)
+d155 1
+a155 5
+#                          (os.path.basename(options.file), 
+#                        open(options.file, 'rb'),
+#                        mimetype,
+        
+                        #{'name':'Data'})
+d159 1
+a159 1
+    if False:
+d164 1
+a164 4
+        if options.overwrite:
+            params['overwrite'] = u"1"
+        else:
+            params['overwrite'] = u"0"
+d168 1
+a168 1
+                              u"text/plain")
+a170 1
+    
+d195 1
+a195 1
+        print r.status_code
+d249 5
+a253 6
+                
+                     
+        
+        
+    
+        
+@
+
+
+1.1
+log
+@new
+@
+text
+@d10 1
+d14 8
+d25 1
+d29 5
+d35 1
+a35 1
+%prog [options] collection datasource map
+d37 1
+a37 1
+Add a datasource to a collection using the specified map.
+d39 2
+a40 2
+Datasources are local to the client or accessible from the server, 
+depending upon the datatype.
+d47 1
+a47 9
+Server or network data sources:
+    MicrosoftAccess
+    MySQL
+    ConnectionString - Open DataBase Connection (ODBC) string
+
+Map is a map name from the collection SourceMaps and specifies how
+    the data will be translated from the input source to schema
+    required by the database.  See documentation for details
+    on creating Maps.  
+d60 14
+a73 10
+    parser.add_option("--datatype", type="string", default="MicrosoftExcel",
+                      help="Source of data:  csv, MicrosoftExcel, " + 
+                      "MicrosoftAccess, MySQL, ConnectionString, or XML.  When " + 
+                      "the source is csv, MicrosoftExcel, or XML, the source is " +
+                      "assumed to be a local file.  For other datasources, " +
+                      "it is assumed that the data is available on the " +
+                      "Tethys server or via the network")
+    parser.add_option("--dataoptions", type="string", default="",
+                      help="Options given to the open database connector (ODBC)")
+    parser.add_option("--SpeciesAbbreviations", type="string", default="",
+d75 13
+a87 1
+    
+d90 2
+a91 5
+    if len(args) == 2:
+        collection, datasource = args
+        if options.datatype != "XML":
+            raise ValueError("SourceMap name required for non XML data")
+        map = ""
+d95 2
+a96 12
+        parser.error("Expecting collection datasource map (map not required if --datatype=XML")
+    
+    # Encode data if appropriate
+    if options.datatype in ["MicrosoftExcel", "csv", "XML"]:
+        # Read in the file and encode it for transmission in XML
+        fileH = open(datasource, 'rb')
+        data = fileH.read()
+        edata = b64encode(data)
+        # Grab the basename of the file
+        [path, fname] = os.path.split(datasource)
+        datasource = "file<%s>:"%(fname) + edata
+ 
+d98 1
+a98 1
+    (server_url, description) = client_server.get_url(
+d100 27
+a126 2
+    
+    # Prompt for password if user put a place holder
+d128 1
+a128 1
+    if promptpw in options.dataoptions:
+d130 188
+a317 3
+        options.dataoptions = \
+            options.dataoptions.replace(promptpw, 
+                                        "Password=%s;"%(password))        
+d319 2
+a320 2
+    print "Connecting to server:  %s %s..." % (server_url, description)
+    server = xmlrpclib.Server(server_url)
+d325 2
+a326 2
+            collection, options.datatype, datasource, options.dataoptions,
+            map, options.SpeciesAbbreviations)
+@
+

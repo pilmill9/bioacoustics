@@ -1,0 +1,28 @@
+head	1.1;
+access;
+symbols
+	v2_3:1.1
+	v2_1:1.1;
+locks; strict;
+comment	@# @;
+expand	@b@;
+
+
+1.1
+date	2013.10.02.02.50.42;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@new
+@
+text
+@ln ../dbxmlServer/src/xmlpp.py .
+ln ../dbxmlServer/src/client_server.py .
+@

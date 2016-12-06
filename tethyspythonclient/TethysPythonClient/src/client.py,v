@@ -1,0 +1,320 @@
+head	1.4;
+access;
+symbols
+	v2_3:1.3
+	v2_1:1.2;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2016.04.20.19.43.46;	author sherbert;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2016.01.11.23.25.47;	author sherbert;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2013.10.05.19.58.31;	author mroch;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.02.02.50.42;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@cleanup
+@
+text
+@# Sample Python client
+# Shows example of running an XQuery using either the XMLPRC or REST
+# transport layers.  Note that REST is the preferred transport layer
+# and XMLPRC is now deprecated.
+
+import math
+import re
+import optparse
+
+
+#pretty print
+import xmlpp
+
+import pdb  # debugger
+
+# remote procedure calls over xml
+import xmlrpclib
+
+# xml parser
+import xml.sax.xmlreader
+from xml.sax import make_parser
+from xml.sax.handler import ContentHandler
+
+# site packages
+import mx.DateTime
+import requests
+
+# our modules
+import client_server
+
+import pdb
+
+error_re = re.compile("(?P<errclass>\w+ [eE]rror): *(?P<msg>[^\[]+)\[(?P<errcode>[^\]]*).*line (?P<line>\d+), column (?P<col>\d+).*")
+
+
+    
+def read_file(file):
+    in_h = open(file, "rb")
+    contents = in_h.readlines()
+    in_h.close()
+    return "".join(contents)
+
+def display_xquery(query):
+    "Show query with line numbers"
+    lines = query.split("\n")
+    n = 1
+    for l in lines:
+        print "%03d %s\n"%(n, l),
+        n = n+1        
+        
+def xquery_xmlrpc(server, query, verboseError=True):
+    "query_xmlrpc - Run XQuery over xmlrpc"
+    
+    print "Running query:"
+    display_xquery(xquery)
+
+    result = server.query(query)
+
+    # check for errors
+    resultN = len(result)
+    if resultN > 0 and \
+            result[0:min(resultN,100)].lower().find("error")> -1:
+        print result
+        m = error_re.match(result)  # try to parse the error
+        if m:
+            # got it!
+            if verboseError:
+                lines = query.split('\n')
+                line = int(m.group("line"))-1
+                col = int(m.group("col"))-1
+
+                for r in range(max(0, line-2), min(len(lines), line+2)):
+                    if r == line:
+                        if col < len(lines[r]):
+                            print "%d:  %s__ERROR-HERE__%s"%(
+                                r+1, lines[r][0:col], lines[r][col:])
+                        else:
+                            print "%d:  %s__ERROR-HERE__"%(
+                                r+1, lines[r][0:col])
+                                
+                    else:
+                        print "%d:  %s"%(r+1, lines[r])
+    return result
+
+def xquery_REST(server, xquery):
+    """query_REST - Run XQuery over REST
+    server is server's URL
+    xquery is the query string, must be UTF-8 encoded (e.g. no 16 bit unicode)
+    """
+    url = server + "/XQuery"
+    
+    print "Running query:"
+    display_xquery(xquery)
+    
+    params = {"XQuery" : xquery}  # message parameters
+    result = requests.post(url, params)
+    
+    if result.status_code != requests.codes.ok:
+        print 'error ocurred: %d'%(result.status_code)
+        print result.text
+    else:
+        print result.text
+        
+    return result.text
+    
+    
+    
+
+def main():
+    parser = optparse.OptionParser("%prog")
+    client_server.add_client_opts(parser)
+    (options, args) = parser.parse_args()
+    
+    # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+    
+   
+       # Establish connection to server
+    (server_url, description) = client_server.get_url(
+        options.server, options.port, options.secure_socket_layer)
+        
+    print "Connecting to %s server:  %s %s" % (options.servertype, 
+                                               server_url, description)
+    
+    if options.servertype == "xmlrpc":
+        server = xmlrpclib.Server(server_url)
+        xquery = xquery_xmlrpc # set appropriate function
+    elif options.servertype == "REST":
+        server = server_url
+        xquery = xquery_REST # set appropriate function
+
+    # Sample query, show all Zipheus cavirostris detections from 
+    # site M deployment 38 in project SOCAL
+    print "Running query"
+    result = xquery(server, '''
+(: import Tethys schema so we have type information about the docuements :)
+import schema namespace ty="http://tethys.sdsu.edu/schema/1.0" at "tethys.xsd";
+(: import utility functions :)
+import module namespace lib="http://tethys.sdsu.edu/XQueryFns" at "Tethys.xq";
+
+
+let $xmldocument := 0  (: first document :)
+let $xmldocs := ()     (: no documents so far :)
+
+(: Find all of the desired detections.  
+   This query is a bit more complicated than it need be as we are tracking
+   which XML document the detections came from.  
+   
+   This is sometimes useful, especially when there are multiple lines
+   of effort across the same time and space, although it is not really 
+   needed here.
+   
+   We create a temporary variable with all of the detections and then sort them
+   in the next query.  Again, this is overengineering for this specific query,
+   but would be needed to return detections from multiple deployments in order.
+:)
+let $detections := for $item in (
+    for $det at $p in collection("Detections")/ty:Detections
+        let $xmldocument := $xmldocument + 1
+        let $xmldocs := ($xmldocs, $det/DataSource)
+        (: conditions on Detections group :)
+        where upper-case($det/DataSource/Site) = upper-case("M") and 
+              upper-case($det/DataSource/Project) = upper-case("SOCAL") and
+              $det/DataSource/Deployment = 38.000000 
+        return
+           for $detection in $det/OnEffort/Detection  (: OnEffort/OffEffort :)
+              (: conditions on individual Detections, here we use
+                 an abbreviation for the species name  :)
+              where $detection/SpeciesID = lib:abbrev2tsn("Zc", "NOAA.NMFS.v1") 
+           return
+                <Detection>
+                  {$detection/Start}
+                  {$detection/End}
+                  <idx>{xs:integer($p)}</idx>
+                </Detection>
+        )
+  return $item
+
+(: Sources contains the list of indices corresponding to all of the documents
+   from which we drew detections :)
+let $sources := distinct-values(for $d in $detections return $d/idx)
+
+(: Finally, we return the detections and a list of the data sources
+   from which they came. :)
+   
+return
+<ty:Result xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Detections>
+  {(: Rewrite the detections mapping each detection to a deployment/ensemble :)
+   for $d in $detections
+   order by $d/Start
+   return
+     <Detection>
+      {$d/Start}
+      {$d/End}
+      <idx>{index-of(($sources), $d/idx)}</idx>
+     </Detection>
+  }
+</Detections>
+<Sources>
+  {
+   (: Write out the information for the deployment/ensembles :)
+   for $source in $sources
+     return
+      collection("Detections")[xs:decimal($source)]/ty:Detections/DataSource
+  }
+</Sources>
+</ty:Result>
+''')
+
+    print result    
+
+
+main()
+@
+
+
+1.3
+log
+@change XMLRPC comment to deprecated
+@
+text
+@a116 3
+        
+    print "Connecting to server:  %s %s"%(server_url, description)
+    server = xmlrpclib.Server(server_url)
+d147 1
+a147 1
+   This query is a bit more complicated than it need by as we are tracking
+d184 1
+a184 1
+(: Finally, we return the detections and a lsit of the data sources
+@
+
+
+1.2
+log
+@updates for REST architecture
+@
+text
+@d4 1
+a4 1
+# and XMLPRC will be deprecated in the future.
+@
+
+
+1.1
+log
+@new
+@
+text
+@d1 5
+d10 1
+d26 1
+d31 1
+d43 13
+a56 4
+       
+
+
+def runquery(server, query, verboseError=True):
+d85 23
+d122 14
+d139 1
+a139 1
+    str = runquery(server, '''
+d142 1
+a142 1
+(: import utitlity functions :)
+a179 1
+
+d214 2
+a215 5
+    
+    fname = "Detections.xml"
+    print "Query returned result of %d bytes, writing to %s\n"%(len(str), fname)
+    fileH = open(fname, "w")
+    xmlpp.pprint(str, output=fileH, indent=2, width=80)
+@
+

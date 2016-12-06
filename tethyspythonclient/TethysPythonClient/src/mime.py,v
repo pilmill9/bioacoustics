@@ -1,0 +1,45 @@
+head	1.1;
+access;
+symbols
+	v2_3:1.1
+	v2_1:1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2013.11.27.02.12.26;	author mroch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@new
+@
+text
+@import mimetypes
+import os
+
+mime = mimetypes.MimeTypes()
+# add missing types
+mime.add_type('application/msaccess', '.mdb')
+mime.add_type('text/csv', '.csv')
+mime.add_type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                   '.xlsx', True)
+mime.add_type('application/vnd.ms-excel', '.xls', True)
+
+def getMimeType(fname, mimetype=None):
+    """getMimeType - Extract mimetype from a filename or extension if not specified
+    Returns mimetype if specified, otherwise guesses from extension that
+    must contain the period (.ext)
+    """
+    
+    if mimetype == None:
+        mimetype = mime.guess_type(fname)
+    return mimetype
+@
