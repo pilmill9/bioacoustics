@@ -23,7 +23,7 @@ for i=1:length(hyd)
     fprintf(fileid, '<start> %d </start> <end> %d </end> <spec_noise> %d </spec_noise> <spec_rl> %d </spec_rl> \n', start_time, end_time, spec_noise, spec_rl );
 
     fprintf(fileid, '<cm_max>\n');
-    
+     
     for n=1:length(hyd(i).detection.calls(1).cm_max.index) %make variable of length
     %fprintf('inner loop is n= %d', n);
     index=hyd(i).detection.calls(1).cm_max.index(n);
