@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://tethys.sdsu.edu/schema/1.0"
+  xmlns="http://tethys.sdsu.edu/schema/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="CommonElements.xsd"/>
+  <xs:element name="Localize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Description" type="DescriptionType" minOccurs="0"/>
+        <xs:element name="DataSource" type="DataSourceType"/>
+        <xs:element name="Algorithm" type="AlgorithmType"/>
+        <xs:element name="UserID" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>User that submitted the document.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ZeroLocation">
+          <xs:annotation>
+            <xs:documentation>Specifies coordinate system.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Relative" type="RelativeLocType">
+                <xs:annotation>
+                  <xs:documentation>Relative to sensor's deployment location</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Absolute" type="AbsoluteLocType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="OrientationTrack">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Orientation" type="OrientationType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Localizations">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Localization" type="LocalizationType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="RelativeLocType">
+    <xs:choice>
+      <xs:element name="Bearing" type="DirectionVectorType"/>
+      <xs:element name="Point" type="R3Point"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="UTMType">
+    <xs:sequence>
+      <xs:element name="Ellipsoid" type="xs:NCName"/>
+      <xs:element name="Zone" type="xs:NMTOKEN"/>
+      <xs:element name="x_m" type="xs:decimal"/>
+      <xs:element name="y_m" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbsoluteLocType">
+    <xs:choice>
+      <xs:element name="UTM" type="UTMType"/>
+      <xs:element name="Point" type="R3Point">
+        <xs:annotation>
+          <xs:documentation>This is not related to any geometric system.  We thought it might be useful for localizations relative to a local frame, but this may be of limited use.  Remove?
+</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="LongLat"/>
+      <xs:element name="RMS" nillable="false" type="xs:decimal"/>
+      <xs:element name="Time" nillable="false" type="xs:dateTime"/>
+      <xs:element name="Depth" nillable="false" type="xs:decimal"/>
+      <xs:element name="Channel" nillable="false" type="xs:integer"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="DirectionVectorType">
+    <xs:annotation>
+      <xs:documentation>Designed to be a subset of OpenGML DirectionVectorType:  
+http://schemas.opengis.net/gml/3.1.1/base/direction.xsd
+
+Unlike the OpenGML, direction may not be specified as a vector, and the verticalAngle is optional.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="horizontalAngle">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:double">
+              <xs:attribute fixed="deg" name="uom" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verticalAngle" maxOccurs="1" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:double">
+              <xs:attribute fixed="deg" name="uom"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DirectionWErrorType">
+    <xs:complexContent>
+      <xs:extension base="DirectionVectorType">
+        <xs:sequence>
+          <xs:element name="StdError" type="DirectionVectorType">
+            <xs:annotation>
+              <xs:documentation>Standard error in degrees for the measurement.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="R3Point">
+    <xs:sequence>
+      <xs:element name="x_m" type="xs:decimal"/>
+      <xs:element name="y_m" type="xs:decimal"/>
+      <xs:element name="z_m" type="xs:decimal" default="0.0" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="R3PointWErrorType">
+    <xs:complexContent>
+      <xs:extension base="R3Point">
+        <xs:sequence>
+          <xs:element name="StdError" type="R3Point"/>
+          <xs:element minOccurs="0" name="BearingIDs">
+            <xs:annotation>
+              <xs:documentation>If multiple bearings were used to create this localization, their ids can be provided.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="EventRef" type="EventType">
+                  <xs:annotation>
+                    <xs:documentation>Reference to individual bearing within this XML document.</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrientationType">
+    <xs:sequence>
+      <xs:element name="Latitude" type="xs:decimal"/>
+      <xs:element name="Longitude" type="xs:decimal"/>
+      <xs:element name="Depth" type="xs:decimal"/>
+      <xs:element name="Timestamp" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocalizationType">
+    <xs:sequence>
+      <xs:element name="Event" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Optional tag typically in ISO datetime format YYYY-MM-DDTHH:MM:SSZ identifying this event uniquely within the stream.  For human analysts, it is typical to use the time at which the detection was made.  When present, the combination of the event and attributes that uniquely identify the set of detections (or document name) must be uniqe.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Selection" type="SelectionType">
+        <xs:annotation>
+          <xs:documentation>References a detection or provides a coarse description of the signal that is being localized (e.g. start/end times, bounding box).  Description is specified with respect to a specific channel.
+</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Sensors">
+        <xs:annotation>
+          <xs:documentation>List of sensors used in localization</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element name="Sensor">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="Unit" type="xs:integer">
+                    <xs:annotation>
+                      <xs:documentation>Ensemble unit required when localizing from an ensemble of instruments.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="Channel" type="xs:integer"/>
+                  <xs:element name="Depth">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:double"/>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Latitude" type="xs:decimal"/>
+                  <xs:element name="Longitude" type="xs:decimal"/>
+                  <xs:element maxOccurs="1" name="Name" type="xs:string"/>
+                  <xs:element name="Parameters">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="sample_freq"/>
+                        <xs:element name="nrec"/>
+                        <xs:element name="xp1"/>
+                        <xs:element name="xp2"/>
+                        <xs:element name="freq_lo"/>
+                        <xs:element name="freq_hi"/>
+                        <xs:element name="sum_freq_lo"/>
+                        <xs:element name="sum_freq_hi"/>
+                        <xs:element name="whiten "/>
+                        <xs:element name="white_x"/>
+                        <xs:element name="min_call"/>
+                        <xs:element name="max_call"/>
+                        <xs:element name="merge"/>
+                        <xs:element name="overlap"/>
+                        <xs:element name="nbin"/>
+                        <xs:element name="fftl"/>
+                        <xs:element name="skip"/>
+                        <xs:element name="bin_lo"/>
+                        <xs:element name="bin_hi"/>
+                        <xs:element name="nfreq"/>
+                        <xs:element name="sum_bin_lo"/>
+                        <xs:element name="sum_bin_hi"/>
+                        <xs:element name="noise_ceiling"/>
+                        <xs:element name="thresh"/>
+                        <xs:element name="template"/>
+                        <xs:element name="cut"/>
+                        <xs:element name="waveform"/>
+                        <xs:element name="cm_on"/>
+                        <xs:element name="cm_max_on"/>
+                        <xs:element name="cm_max2_on"/>
+                        <xs:element name="measurements"/>
+                        <xs:element name="slope"/>
+                        <xs:element name="filter"/>
+                        <xs:element name="measure">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="slope"/>
+                              <xs:element name="cm_max2_duration"/>
+                              <xs:element name="cm_max_duration"/>
+                              <xs:element name="cm_bancm_bandwidth"/>
+                              <xs:element name="cm_max_bandwidth"/>
+                              <xs:element name="spec_noise"/>
+                              <xs:element name="spec_rl"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="Bearing" type="DirectionWErrorType"/>
+        <xs:element name="LocationR" type="R3PointWErrorType"/>
+        <xs:element minOccurs="1" name="LocationA" type="AbsoluteLocType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SelectionType">
+    <xs:choice>
+      <xs:element minOccurs="1" name="Detection">
+        <xs:annotation>
+          <xs:documentation>Link to a detection identifier</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="URI" type="xs:string"/>
+            <xs:element name="EventRef" type="EventType">
+              <xs:annotation>
+                <xs:documentation>Reference to a specific detection within the deployment for the specified DataSource.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:sequence>
+        <xs:element name="BeginTime" type="xs:dateTime"/>
+        <xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
+        <xs:element minOccurs="0" name="LowFreq_Hz" type="xs:double"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="HighFreq_Hz" type="xs:double"/>
+        <xs:element minOccurs="0" name="UnitID" type="xs:integer">
+          <xs:annotation>
+            <xs:documentation>Specifies ensemble unit (when using an ensemble source).</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Channel" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="SpeciesID" type="SpeciesIDType"/>
+        <xs:element minOccurs="0" name="Call" type="CallType"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>
