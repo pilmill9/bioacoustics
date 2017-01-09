@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ty:Localizations xmlns:ty="http://tethys.sdsu.edu/schema/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://tethys.sdsu.edu/schema/1.0 tethys.xsd " >
+<detection>
+<parms>
+<sample_freq>10000</sample_freq>
+<nrec>600000</nrec>
+<xp1>1</xp1>
+<xp2>2</xp2>
+<freq_lo>150</freq_lo>
+<freq_hi>1000</freq_hi>
+<sum_freq_lo>150</sum_freq_lo>
+<sum_freq_hi>1000</sum_freq_hi>
+<whiten>1</whiten>
+<white_x>1</white_x>
+<min_call>3.500000e-01</min_call>
+<max_call>5</max_call>
+<loop>5</loop>
+<merge>2</merge>
+<overlap>2</overlap>
+<nbin>1168</nbin>
+<fftl>2048</fftl>
+<skip>512</skip>
+<bin_lo>32</bin_lo>
+<bin_hi>206</bin_hi>
+<nfreq>175</nfreq>
+<sum_bin_lo>32</sum_bin_lo>
+<sum_bin_hi>206</sum_bin_hi>
+<noise_ceiling>3</noise_ceiling>
+<thresh>9</thresh>
+<template>1</template>
+<cut>5</cut>
+<waveform>0</waveform>
+<cm_on>1</cm_on>
+<cm_max_on>1</cm_max_on>
+<cm_max2_on>0</cm_max2_on>
+<measurements>1</measurements>
+<slope>1</slope>
+<filter>0</filter>
+<measure><slope>0</slope>
+<cm_max2_duration>0</cm_max2_duration>
+<cm_max_duration>0</cm_max_duration>
+<cm_max_bandwidth>0</cm_max_bandwidth>
+<cm_max2_bandwidth>0</cm_max2_bandwidth>
+<spec_noise>1</spec_noise>
+<spec_rl>1</spec_rl>
+</measure>
+</parms>
+<calls>
+<call>
+<start> 4609 </start> <end> 15360 </end> <spec_noise> 1.015016e+06 </spec_noise> <spec_rl> 6.565169e+05 </spec_rl> 
+<cm_max>
+<index> 43 </index> <values> 20269 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 44 </index> <values> 20057 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 45 </index> <values> 17078 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 218 </index> <values> 21054 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 219 </index> <values> 29283 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 220 </index> <values> 29883 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 221 </index> <values> 12454 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 393 </index> <values> 10133 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 394 </index> <values> 18038 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 395 </index> <values> 30610 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 396 </index> <values> 15086 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 569 </index> <values> 9406 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 570 </index> <values> 33991 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 571 </index> <values> 36154 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 572 </index> <values> 14945 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 744 </index> <values> 13481 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 745 </index> <values> 42144 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 746 </index> <values> 52386 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 747 </index> <values> 19650 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 919 </index> <values> 14105 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 920 </index> <values> 40204 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 921 </index> <values> 47890 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 922 </index> <values> 15463 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1092 </index> <values> 9578 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1093 </index> <values> 31362 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1094 </index> <values> 32133 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1095 </index> <values> 32919 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1096 </index> <values> 28441 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1267 </index> <values> 20718 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1268 </index> <values> 55947 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1269 </index> <values> 45376 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1270 </index> <values> 14552 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1442 </index> <values> 18984 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1443 </index> <values> 65535 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1444 </index> <values> 55735 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1445 </index> <values> 15297 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1617 </index> <values> 12634 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1618 </index> <values> 61957 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1619 </index> <values> 60755 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1620 </index> <values> 26866 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1792 </index> <values> 15563 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1793 </index> <values> 50398 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1794 </index> <values> 42540 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1795 </index> <values> 19824 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1796 </index> <values> 14661 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1967 </index> <values> 18584 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1968 </index> <values> 36361 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1969 </index> <values> 29793 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1970 </index> <values> 22100 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 1971 </index> <values> 13122 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2141 </index> <values> 4939 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2142 </index> <values> 25839 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2143 </index> <values> 47751 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2144 </index> <values> 42993 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2145 </index> <values> 31573 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2146 </index> <values> 14012 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2317 </index> <values> 25718 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2318 </index> <values> 57104 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2319 </index> <values> 49569 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2320 </index> <values> 23787 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2492 </index> <values> 13022 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2493 </index> <values> 35786 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2494 </index> <values> 29947 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+<index> 2495 </index> <values> 8594 </values> <scale> 9.270071e+00 </scale> <size> 175x21 </size>
+</cm_max>
+</call>
+<call>
+<start> 1 </start> <end> 5632 </end> <spec_noise> 4.115954e+05 </spec_noise> <spec_rl> 3.924172e+05 </spec_rl> 
+<cm_max>
+<index> 115 </index> <values> 11138 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 116 </index> <values> 18338 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 117 </index> <values> 16436 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 118 </index> <values> 11696 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 119 </index> <values> 33196 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 120 </index> <values> 52598 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 121 </index> <values> 55889 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 122 </index> <values> 37805 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 123 </index> <values> 21388 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 124 </index> <values> 21126 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 125 </index> <values> 27806 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 126 </index> <values> 26992 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 127 </index> <values> 22399 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 128 </index> <values> 9985 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 129 </index> <values> 24065 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 130 </index> <values> 52600 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 131 </index> <values> 59473 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 132 </index> <values> 38864 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 133 </index> <values> 18991 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 134 </index> <values> 21520 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 135 </index> <values> 24853 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 136 </index> <values> 13113 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 137 </index> <values> 16272 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 138 </index> <values> 31519 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 139 </index> <values> 22862 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 140 </index> <values> 20878 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 141 </index> <values> 34436 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 142 </index> <values> 40267 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 143 </index> <values> 40959 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 144 </index> <values> 34414 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 145 </index> <values> 47031 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 146 </index> <values> 40809 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 147 </index> <values> 26372 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 148 </index> <values> 41973 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 149 </index> <values> 47659 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 150 </index> <values> 37414 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 151 </index> <values> 39811 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 152 </index> <values> 53585 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 153 </index> <values> 46225 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 154 </index> <values> 39051 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 155 </index> <values> 22330 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 156 </index> <values> 28993 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 157 </index> <values> 42301 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 158 </index> <values> 48495 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 159 </index> <values> 41941 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 160 </index> <values> 38174 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 161 </index> <values> 24625 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 162 </index> <values> 23376 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 163 </index> <values> 44870 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 164 </index> <values> 43954 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 165 </index> <values> 36886 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 166 </index> <values> 30621 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 167 </index> <values> 24984 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 168 </index> <values> 38284 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 169 </index> <values> 47157 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 170 </index> <values> 39171 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 171 </index> <values> 20269 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 172 </index> <values> 14267 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 173 </index> <values> 12207 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 290 </index> <values> 13313 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 291 </index> <values> 17095 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 292 </index> <values> 15267 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 293 </index> <values> 11002 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 294 </index> <values> 30725 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 295 </index> <values> 43955 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 296 </index> <values> 47714 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 297 </index> <values> 38403 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 298 </index> <values> 25366 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 299 </index> <values> 20906 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 300 </index> <values> 23788 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 301 </index> <values> 17992 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 302 </index> <values> 21758 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 303 </index> <values> 17090 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 304 </index> <values> 27532 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 305 </index> <values> 53713 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 306 </index> <values> 61972 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 307 </index> <values> 43912 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 308 </index> <values> 22792 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 309 </index> <values> 21396 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 310 </index> <values> 22409 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 311 </index> <values> 15349 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 312 </index> <values> 21077 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 313 </index> <values> 34956 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 314 </index> <values> 27038 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 315 </index> <values> 20547 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 316 </index> <values> 28344 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 317 </index> <values> 32506 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 318 </index> <values> 40010 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 319 </index> <values> 40012 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 320 </index> <values> 59998 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 321 </index> <values> 43361 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 322 </index> <values> 19805 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 323 </index> <values> 41049 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 324 </index> <values> 51634 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 325 </index> <values> 46539 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 326 </index> <values> 55081 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 327 </index> <values> 56184 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 328 </index> <values> 44203 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 329 </index> <values> 44816 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 330 </index> <values> 43567 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 331 </index> <values> 40252 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 332 </index> <values> 43317 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 333 </index> <values> 55219 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 334 </index> <values> 58098 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 335 </index> <values> 65535 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 336 </index> <values> 49098 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 337 </index> <values> 42948 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 338 </index> <values> 51753 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 339 </index> <values> 38512 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 340 </index> <values> 28005 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 341 </index> <values> 29360 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 342 </index> <values> 38600 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 343 </index> <values> 55097 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 344 </index> <values> 58231 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 345 </index> <values> 48274 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 346 </index> <values> 34703 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 347 </index> <values> 29944 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 348 </index> <values> 21952 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 466 </index> <values> 4926 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 470 </index> <values> 10689 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 471 </index> <values> 10813 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 472 </index> <values> 12087 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 473 </index> <values> 7713 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 474 </index> <values> 7530 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 475 </index> <values> 15708 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 476 </index> <values> 13081 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 477 </index> <values> 12622 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 478 </index> <values> 7841 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 479 </index> <values> 7373 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 480 </index> <values> 19834 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 481 </index> <values> 23128 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 482 </index> <values> 15677 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 483 </index> <values> 5412 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 484 </index> <values> 3974 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 485 </index> <values> 4700 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 486 </index> <values> 8668 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 487 </index> <values> 12703 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 488 </index> <values> 18088 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 489 </index> <values> 20578 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 490 </index> <values> 12889 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 491 </index> <values> 7200 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 492 </index> <values> 5832 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 493 </index> <values> 11031 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 494 </index> <values> 12468 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 495 </index> <values> 35229 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 496 </index> <values> 28326 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 497 </index> <values> 12810 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 498 </index> <values> 19903 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 499 </index> <values> 18214 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 500 </index> <values> 14583 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 501 </index> <values> 24911 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 502 </index> <values> 16871 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 503 </index> <values> 11186 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 504 </index> <values> 16055 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 505 </index> <values> 30142 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 506 </index> <values> 16935 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 507 </index> <values> 10785 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 508 </index> <values> 19314 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 509 </index> <values> 24816 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 510 </index> <values> 41476 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 511 </index> <values> 29596 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 512 </index> <values> 22737 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 513 </index> <values> 19109 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 514 </index> <values> 10992 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 515 </index> <values> 5420 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 516 </index> <values> 9180 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 517 </index> <values> 21112 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 518 </index> <values> 27301 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 519 </index> <values> 25971 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 520 </index> <values> 18218 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 521 </index> <values> 16216 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 522 </index> <values> 19901 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 523 </index> <values> 18769 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 650 </index> <values> 12943 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 651 </index> <values> 10138 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 656 </index> <values> 8469 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 663 </index> <values> 6633 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 664 </index> <values> 10394 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 669 </index> <values> 3211 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 670 </index> <values> 16078 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 671 </index> <values> 13399 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 672 </index> <values> 4141 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 673 </index> <values> 6846 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 674 </index> <values> 10113 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 675 </index> <values> 11254 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 676 </index> <values> 10006 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 679 </index> <values> 5806 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 680 </index> <values> 16155 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 681 </index> <values> 4940 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 684 </index> <values> 6145 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 685 </index> <values> 15232 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 686 </index> <values> 7485 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 687 </index> <values> 5077 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 692 </index> <values> 12758 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 693 </index> <values> 10799 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 694 </index> <values> 9014 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 695 </index> <values> 5000 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 696 </index> <values> 5288 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 697 </index> <values> 5623 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 849 </index> <values> 13925 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+<index> 850 </index> <values> 13233 </values> <scale> 6.782097e+00 </scale> <size> 175x11 </size>
+</cm_max>
+</call>
+<call>
+<start> 8193 </start> <end> 15872 </end> <spec_noise> 4.889236e+05 </spec_noise> <spec_rl> 2.075975e+05 </spec_rl> 
+<cm_max>
+<index> 35 </index> <values> 29674 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 36 </index> <values> 20507 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 209 </index> <values> 20029 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 210 </index> <values> 43683 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 211 </index> <values> 25036 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 384 </index> <values> 17538 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 385 </index> <values> 43052 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 386 </index> <values> 21159 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 559 </index> <values> 30485 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 560 </index> <values> 46645 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 561 </index> <values> 19294 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 733 </index> <values> 7202 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 734 </index> <values> 36551 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 735 </index> <values> 44373 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 736 </index> <values> 13694 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 908 </index> <values> 5940 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 909 </index> <values> 34125 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 910 </index> <values> 45553 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 911 </index> <values> 15326 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1083 </index> <values> 4539 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1084 </index> <values> 30405 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1085 </index> <values> 43525 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1086 </index> <values> 13248 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1258 </index> <values> 5828 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1259 </index> <values> 32503 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1260 </index> <values> 44762 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1261 </index> <values> 12256 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1434 </index> <values> 27001 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1435 </index> <values> 48430 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1436 </index> <values> 18842 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1609 </index> <values> 18502 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1610 </index> <values> 51138 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1611 </index> <values> 28700 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1784 </index> <values> 21798 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1785 </index> <values> 58866 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1786 </index> <values> 36937 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1787 </index> <values> 10259 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1959 </index> <values> 34492 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1960 </index> <values> 65535 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 1961 </index> <values> 33151 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2133 </index> <values> 7796 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2134 </index> <values> 41433 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2135 </index> <values> 59278 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2136 </index> <values> 23677 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2308 </index> <values> 8513 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2309 </index> <values> 40993 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2310 </index> <values> 42178 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2311 </index> <values> 12716 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2484 </index> <values> 33694 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+<index> 2485 </index> <values> 30557 </values> <scale> 5.942938e+00 </scale> <size> 175x15 </size>
+</cm_max>
+</call>
+<call>
+<start> 14849 </start> <end> 19968 </end> <spec_noise> 8.733267e+05 </spec_noise> <spec_rl> 2.763709e+05 </spec_rl> 
+<cm_max>
+<index> 67 </index> <values> 24141 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 241 </index> <values> 44130 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 242 </index> <values> 50917 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 243 </index> <values> 41429 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 244 </index> <values> 25864 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 415 </index> <values> 17758 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 416 </index> <values> 37726 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 417 </index> <values> 49021 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 418 </index> <values> 65535 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 419 </index> <values> 42100 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 420 </index> <values> 25884 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 421 </index> <values> 30537 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 422 </index> <values> 31266 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 423 </index> <values> 25906 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 590 </index> <values> 15662 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 591 </index> <values> 37861 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 592 </index> <values> 52609 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 593 </index> <values> 58227 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 594 </index> <values> 22326 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 595 </index> <values> 15866 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 596 </index> <values> 26765 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 597 </index> <values> 37818 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 598 </index> <values> 50582 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 599 </index> <values> 45525 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 600 </index> <values> 18899 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 766 </index> <values> 34699 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 767 </index> <values> 42221 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 768 </index> <values> 36319 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 772 </index> <values> 15317 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 773 </index> <values> 41479 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 774 </index> <values> 56424 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 775 </index> <values> 37355 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 776 </index> <values> 20704 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 942 </index> <values> 13065 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 948 </index> <values> 23452 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 949 </index> <values> 36776 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 950 </index> <values> 28948 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 951 </index> <values> 32193 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1123 </index> <values> 10631 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1124 </index> <values> 27130 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1125 </index> <values> 26188 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1126 </index> <values> 32829 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1298 </index> <values> 14368 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1299 </index> <values> 28459 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1300 </index> <values> 15676 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1473 </index> <values> 20368 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1474 </index> <values> 33726 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1475 </index> <values> 14893 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+<index> 1649 </index> <values> 26738 </values> <scale> 5.745372e+00 </scale> <size> 175x10 </size>
+</cm_max>
+</call>
+<call>
+<start> 13825 </start> <end> 22016 </end> <spec_noise> 7.814706e+05 </spec_noise> <spec_rl> 3.196182e+05 </spec_rl> 
+<cm_max>
+<index> 25 </index> <values> 32612 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 26 </index> <values> 20940 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 199 </index> <values> 12545 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 200 </index> <values> 37517 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 201 </index> <values> 29655 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 374 </index> <values> 8118 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 375 </index> <values> 38406 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 376 </index> <values> 42520 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 377 </index> <values> 12574 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 549 </index> <values> 6892 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 550 </index> <values> 38636 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 551 </index> <values> 55857 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 552 </index> <values> 25322 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 725 </index> <values> 29310 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 726 </index> <values> 61819 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 727 </index> <values> 45056 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 900 </index> <values> 13909 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 901 </index> <values> 58537 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 902 </index> <values> 61811 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 903 </index> <values> 13983 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1075 </index> <values> 11778 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1076 </index> <values> 51714 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1077 </index> <values> 65535 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1078 </index> <values> 14853 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1251 </index> <values> 38920 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1252 </index> <values> 62054 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1253 </index> <values> 23938 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1426 </index> <values> 21059 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1427 </index> <values> 50008 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1428 </index> <values> 40385 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1601 </index> <values> 7170 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1602 </index> <values> 34948 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1603 </index> <values> 52736 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1604 </index> <values> 23758 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1776 </index> <values> 5217 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1777 </index> <values> 28490 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1778 </index> <values> 53874 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1779 </index> <values> 27799 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1951 </index> <values> 8848 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1952 </index> <values> 26594 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1953 </index> <values> 44373 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 1954 </index> <values> 14735 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2126 </index> <values> 10642 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2127 </index> <values> 38328 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2128 </index> <values> 47515 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2129 </index> <values> 21886 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2301 </index> <values> 17593 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2302 </index> <values> 46619 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2303 </index> <values> 34760 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2476 </index> <values> 22458 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2477 </index> <values> 39673 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2478 </index> <values> 11598 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+<index> 2652 </index> <values> 29375 </values> <scale> 5.774651e+00 </scale> <size> 175x16 </size>
+</cm_max>
+</call>
+<call>
+<start> 1 </start> <end> 3584 </end> <spec_noise> 7.629027e+05 </spec_noise> <spec_rl> 6.370422e+05 </spec_rl> 
+<cm_max>
+<index> 107 </index> <values> 20522 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 108 </index> <values> 19267 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 109 </index> <values> 13460 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 110 </index> <values> 21678 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 111 </index> <values> 24694 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 112 </index> <values> 17025 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 113 </index> <values> 16526 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 114 </index> <values> 20863 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 115 </index> <values> 18318 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 116 </index> <values> 18557 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 117 </index> <values> 15581 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 118 </index> <values> 27652 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 119 </index> <values> 47879 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 120 </index> <values> 40592 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 121 </index> <values> 23606 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 122 </index> <values> 22411 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 123 </index> <values> 28491 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 124 </index> <values> 21633 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 125 </index> <values> 29621 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 126 </index> <values> 50212 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 127 </index> <values> 54388 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 128 </index> <values> 36963 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 129 </index> <values> 19074 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 130 </index> <values> 15310 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 282 </index> <values> 29100 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 283 </index> <values> 38597 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 284 </index> <values> 32203 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 285 </index> <values> 35194 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 286 </index> <values> 36088 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 287 </index> <values> 28469 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 288 </index> <values> 34308 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 289 </index> <values> 39882 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 290 </index> <values> 26079 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 291 </index> <values> 18686 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 292 </index> <values> 12830 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 293 </index> <values> 25600 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 294 </index> <values> 55389 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 295 </index> <values> 55554 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 296 </index> <values> 57023 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 297 </index> <values> 48518 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 298 </index> <values> 46648 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 299 </index> <values> 43221 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 300 </index> <values> 47234 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 301 </index> <values> 59319 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 302 </index> <values> 65535 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 303 </index> <values> 57114 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 304 </index> <values> 39378 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 305 </index> <values> 26000 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 457 </index> <values> 13186 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 458 </index> <values> 24732 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 459 </index> <values> 19763 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 460 </index> <values> 16725 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 461 </index> <values> 17187 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 462 </index> <values> 10690 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 463 </index> <values> 17859 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 464 </index> <values> 24390 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 465 </index> <values> 11648 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 468 </index> <values> 16105 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 469 </index> <values> 24815 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 470 </index> <values> 21751 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 471 </index> <values> 38285 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 472 </index> <values> 28930 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 473 </index> <values> 19693 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 474 </index> <values> 21367 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 475 </index> <values> 21757 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 476 </index> <values> 24638 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 477 </index> <values> 28945 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 478 </index> <values> 27270 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 479 </index> <values> 20594 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 480 </index> <values> 11553 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 645 </index> <values> 3654 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 646 </index> <values> 11246 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 647 </index> <values> 7224 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 648 </index> <values> 3888 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 649 </index> <values> 7131 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 650 </index> <values> 8795 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 651 </index> <values> 14017 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 652 </index> <values> 15169 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+<index> 653 </index> <values> 8896 </values> <scale> 3.837426e+00 </scale> <size> 175x7 </size>
+</cm_max>
+</call>
+<call>
+<start> 41985 </start> <end> 49152 </end> <spec_noise> 8.528232e+05 </spec_noise> <spec_rl> 2.059395e+05 </spec_rl> 
+<cm_max>
+<index> 42 </index> <values> 57014 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 43 </index> <values> 45657 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 216 </index> <values> 22760 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 217 </index> <values> 62156 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 218 </index> <values> 50787 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 392 </index> <values> 54215 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 393 </index> <values> 38745 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 394 </index> <values> 26826 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 568 </index> <values> 50496 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 569 </index> <values> 51740 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 570 </index> <values> 28260 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 743 </index> <values> 46044 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 744 </index> <values> 63547 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 745 </index> <values> 65535 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 746 </index> <values> 30878 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 919 </index> <values> 35402 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 920 </index> <values> 61636 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 921 </index> <values> 53653 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 1095 </index> <values> 27503 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+<index> 1096 </index> <values> 51320 </values> <scale> 3.042365e+00 </scale> <size> 175x14 </size>
+</cm_max>
+</call>
+<call>
+<start> 42497 </start> <end> 51712 </end> <spec_noise> 4.693847e+05 </spec_noise> <spec_rl> 1.729988e+05 </spec_rl> 
+<cm_max>
+<index> 41 </index> <values> 33308 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 42 </index> <values> 45754 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 43 </index> <values> 46720 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 44 </index> <values> 19148 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 45 </index> <values> 18629 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 216 </index> <values> 24573 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 217 </index> <values> 45458 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 218 </index> <values> 53708 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 219 </index> <values> 42757 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 220 </index> <values> 52186 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 221 </index> <values> 29134 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 392 </index> <values> 15545 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 393 </index> <values> 27007 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 394 </index> <values> 36831 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 395 </index> <values> 65535 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 396 </index> <values> 46396 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 397 </index> <values> 20281 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 569 </index> <values> 12881 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 570 </index> <values> 42043 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 571 </index> <values> 36331 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 572 </index> <values> 35615 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 573 </index> <values> 22012 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 745 </index> <values> 23723 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 746 </index> <values> 24155 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 747 </index> <values> 37360 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 748 </index> <values> 43079 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 749 </index> <values> 24990 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 920 </index> <values> 23955 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 921 </index> <values> 27945 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 922 </index> <values> 26558 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 923 </index> <values> 41647 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 924 </index> <values> 29215 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1094 </index> <values> 18804 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1095 </index> <values> 40545 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1096 </index> <values> 37137 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1097 </index> <values> 26645 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1098 </index> <values> 29054 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1099 </index> <values> 22116 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1269 </index> <values> 39429 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1270 </index> <values> 50075 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1271 </index> <values> 29649 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1272 </index> <values> 18862 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1444 </index> <values> 29809 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1445 </index> <values> 29923 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+<index> 1446 </index> <values> 18722 </values> <scale> 5.948082e+00 </scale> <size> 175x18 </size>
+</cm_max>
+</call>
+<call>
+<start> 1 </start> <end> 5120 </end> <spec_noise> 8.228850e+05 </spec_noise> <spec_rl> 4.637514e+05 </spec_rl> 
+<cm_max>
+<index> 44 </index> <values> 52200 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 45 </index> <values> 55861 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 46 </index> <values> 33640 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 218 </index> <values> 20931 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 219 </index> <values> 48594 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 220 </index> <values> 58019 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 221 </index> <values> 41346 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 392 </index> <values> 32137 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 393 </index> <values> 19421 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 394 </index> <values> 15014 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 395 </index> <values> 20439 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 566 </index> <values> 17632 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 567 </index> <values> 54928 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 568 </index> <values> 47624 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 741 </index> <values> 23180 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 742 </index> <values> 59901 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 743 </index> <values> 46662 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 744 </index> <values> 24745 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 915 </index> <values> 37185 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 916 </index> <values> 28106 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 917 </index> <values> 54416 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 918 </index> <values> 36773 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 919 </index> <values> 22999 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1089 </index> <values> 13549 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1090 </index> <values> 30241 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1091 </index> <values> 15639 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1092 </index> <values> 44187 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1093 </index> <values> 36245 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1263 </index> <values> 30333 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1264 </index> <values> 20953 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1265 </index> <values> 24072 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1266 </index> <values> 15741 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1267 </index> <values> 35711 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1268 </index> <values> 14230 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1437 </index> <values> 9103 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1438 </index> <values> 52259 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1439 </index> <values> 59930 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1440 </index> <values> 34898 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1441 </index> <values> 16186 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1613 </index> <values> 48898 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1614 </index> <values> 65535 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+<index> 1615 </index> <values> 31959 </values> <scale> 2.762723e+00 </scale> <size> 175x10 </size>
+</cm_max>
+</call>
+<call>
+<start> 81921 </start> <end> 89088 </end> <spec_noise> 6.369736e+05 </spec_noise> <spec_rl> 1.416382e+05 </spec_rl> 
+<cm_max>
+<index> 405 </index> <values> 42079 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 579 </index> <values> 27794 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 580 </index> <values> 39488 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 581 </index> <values> 9927 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 754 </index> <values> 24739 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 755 </index> <values> 40282 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 756 </index> <values> 9971 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 929 </index> <values> 33639 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 930 </index> <values> 52985 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 931 </index> <values> 19181 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1104 </index> <values> 44701 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1105 </index> <values> 56267 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1106 </index> <values> 23169 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1278 </index> <values> 31613 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1279 </index> <values> 65535 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1280 </index> <values> 47819 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1281 </index> <values> 12782 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1453 </index> <values> 23151 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1454 </index> <values> 62350 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1455 </index> <values> 45514 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1629 </index> <values> 38460 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+<index> 1630 </index> <values> 30238 </values> <scale> 4.354901e+00 </scale> <size> 175x14 </size>
+</cm_max>
+</call>
+<call>
+<start> 70657 </start> <end> 74240 </end> <spec_noise> 7.138138e+05 </spec_noise> <spec_rl> 3.243408e+05 </spec_rl> 
+<cm_max>
+<index> 33 </index> <values> 45663 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 34 </index> <values> 60928 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 35 </index> <values> 22785 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 36 </index> <values> 10427 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 207 </index> <values> 9302 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 208 </index> <values> 46517 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 209 </index> <values> 65535 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 210 </index> <values> 22749 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 211 </index> <values> 15902 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 382 </index> <values> 12090 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 383 </index> <values> 39020 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 384 </index> <values> 49468 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 385 </index> <values> 14329 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 557 </index> <values> 20661 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 558 </index> <values> 46882 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 559 </index> <values> 37209 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 560 </index> <values> 14879 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 731 </index> <values> 7959 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 732 </index> <values> 27045 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 733 </index> <values> 56980 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 734 </index> <values> 37089 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 735 </index> <values> 12801 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 906 </index> <values> 8905 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 907 </index> <values> 16776 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 908 </index> <values> 45946 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 909 </index> <values> 30996 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 910 </index> <values> 12070 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 1082 </index> <values> 21950 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 1083 </index> <values> 31698 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 1084 </index> <values> 25975 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+<index> 1085 </index> <values> 15757 </values> <scale> 3.729598e+00 </scale> <size> 175x7 </size>
+</cm_max>
+</call>
+<call>
+<start> 81921 </start> <end> 88064 </end> <spec_noise> 7.557603e+05 </spec_noise> <spec_rl> 2.568127e+05 </spec_rl> 
+<cm_max>
+<index> 217 </index> <values> 40245 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 218 </index> <values> 28904 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 391 </index> <values> 18870 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 392 </index> <values> 53792 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 393 </index> <values> 34759 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 566 </index> <values> 30247 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 567 </index> <values> 64477 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 568 </index> <values> 35810 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 569 </index> <values> 11412 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 741 </index> <values> 30019 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 742 </index> <values> 65430 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 743 </index> <values> 35077 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 744 </index> <values> 9667 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 916 </index> <values> 18809 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 917 </index> <values> 63841 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 918 </index> <values> 49934 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 919 </index> <values> 15812 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1091 </index> <values> 11258 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1092 </index> <values> 59966 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1093 </index> <values> 53084 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1094 </index> <values> 12843 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1266 </index> <values> 11985 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1267 </index> <values> 59340 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1268 </index> <values> 47906 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1269 </index> <values> 12166 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1441 </index> <values> 26003 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1442 </index> <values> 65535 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1443 </index> <values> 44113 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1444 </index> <values> 10610 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1616 </index> <values> 27275 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1617 </index> <values> 61613 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1618 </index> <values> 41116 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1619 </index> <values> 9726 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1792 </index> <values> 42417 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+<index> 1793 </index> <values> 34967 </values> <scale> 4.754645e+00 </scale> <size> 175x12 </size>
+</cm_max>
+</call>
+<call>
+<start> 130561 </start> <end> 134144 </end> <spec_noise> 3.989421e+05 </spec_noise> <spec_rl> 1.665165e+05 </spec_rl> 
+<cm_max>
+<index> 31 </index> <values> 21594 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 32 </index> <values> 58735 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 33 </index> <values> 38017 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 34 </index> <values> 14290 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 205 </index> <values> 7109 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 206 </index> <values> 27055 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 207 </index> <values> 65535 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 208 </index> <values> 45629 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 209 </index> <values> 18845 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 210 </index> <values> 19453 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 378 </index> <values> 19526 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 379 </index> <values> 12919 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 380 </index> <values> 11449 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 381 </index> <values> 43529 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 382 </index> <values> 56575 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 383 </index> <values> 27735 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 384 </index> <values> 8780 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 552 </index> <values> 10652 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 553 </index> <values> 32979 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 554 </index> <values> 30212 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 555 </index> <values> 19964 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 556 </index> <values> 43465 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 557 </index> <values> 40201 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 558 </index> <values> 16137 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 728 </index> <values> 22181 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 729 </index> <values> 23778 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 730 </index> <values> 12908 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 731 </index> <values> 29229 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 732 </index> <values> 47178 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 733 </index> <values> 26517 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 904 </index> <values> 12334 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 905 </index> <values> 15853 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 906 </index> <values> 22002 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 907 </index> <values> 48271 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 908 </index> <values> 25098 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 909 </index> <values> 7235 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 1080 </index> <values> 19868 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 1081 </index> <values> 28066 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 1082 </index> <values> 43302 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+<index> 1083 </index> <values> 22928 </values> <scale> 3.186561e+00 </scale> <size> 175x7 </size>
+</cm_max>
+</call>
+<call>
+<start> 28673 </start> <end> 33792 </end> <spec_noise> 7.308871e+05 </spec_noise> <spec_rl> NaN </spec_rl> 
+<cm_max>
+</cm_max>
+</call>
+</calls></detection></ty:Localizations>
