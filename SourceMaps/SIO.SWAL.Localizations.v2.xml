@@ -1,0 +1,210 @@
+<Mapping>
+    <Name>SIO.SWAL.Localization.v1</Name>
+    
+    <DocumentAttributes>
+        <Attribute> 
+            <Name>xmlns:ty</Name>
+            <Value>http://tethys.sdsu.edu/schema/1.0</Value>
+        </Attribute>
+        <Attribute>
+            <Name>xmlns:xsi</Name>
+            <Value>http://www.w3.org/2001/XMLSchema-instance</Value>
+        </Attribute>
+        <Attribute>
+            <Name>xsi:schemaLocation </Name> 
+            <Value>http://tethys.sdsu.edu/schema/1.0 tethys.xsd</Value>
+        </Attribute>
+    </DocumentAttributes>
+    
+    
+    <Directives>
+        <Localization_id>
+            <Sheet name="MetaData">
+                <Description>
+                    <Entry>
+                        <Source> [Objectives] </Source>
+                        <Dest> Objectives </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Abstract] </Source>
+                        <Dest> Abstract </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Method] </Source>
+                        <Dest> Method </Dest>
+                    </Entry>
+                </Description>
+                <DataSource>
+                    <Entry>
+                        <Source> [Project] </Source>
+                        <Dest> Project </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Deployment] </Source>
+                        <Kind> integer </Kind>
+                        <Dest> Deployment </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Site] </Source>
+                        <Dest> Site </Dest>
+                    </Entry>
+                </DataSource>
+                <Entry>
+                    <Source> [User ID] </Source>
+                    <Dest> UserID </Dest>
+                </Entry>	  
+            </Sheet>
+            
+            <Sheet name="Input">
+                <Description>
+                </Description>
+                <DataSource>
+                    <Entry>
+                        <Source> [Project] </Source>
+                        <Dest> Project </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Deployment] </Source>
+                        <Dest> Deployment </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Cruise] </Source>
+                        <Dest> Cruise </Dest>
+                    </Entry>
+                </DataSource>
+                <Algorithm>
+                    <Entry>
+                        <Source> [Method] </Source>
+                        <Default> Analyst detections </Default>
+                        <Dest> Method </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Software] </Source>
+                        <Default> Triton </Default>
+                        <Dest> Software </Dest>
+                    </Entry>
+                    <Entry>
+                        <Source> [Version] </Source>
+                        <Default> unknown </Default>
+                        <Dest> Version </Dest>
+                    </Entry>
+                    <Parameters>
+                        <Entry>
+                            <Source> [Parameters]</Source>
+                            <Dest> Parameters </Dest>
+                        </Entry>
+                        <Entry>
+                            <Source> [Software] </Source>
+                            <Dest> Software</Dest>
+                        </Entry>
+                        <Parameters>
+                </Algorithm>    
+                <Detection>
+                    <Calls>
+                        <Call>
+                            <Entry>
+                                <Source> [numid]</Source>
+                                <Dest>id</Dest>
+                            </Entry>
+                            <cm_max>
+                                <Entry>
+                                    <Source>[scale]</Source>
+                                    <Dest>scale</Dest>
+                                </Entry>
+                                <Entry>
+                                    <Source>[size]</Source>
+                                    <Dest>size</Dest>
+                                </Entry>
+                                <Entry>
+                                    <Source>[values]</Source>
+                                    <Dest>values</Dest>
+                                </Entry>
+                            </cm_max>
+                          <Entry>
+                              <Source>[end]</Source>
+                              <Dest>end</Dest>
+                          </Entry>
+                         <End>
+                          <Entry>
+                              <Source>[endagg]</Source>
+                              <Dest>endagg</Dest>
+                           </Entry>
+                         </End>
+                          <Entry>
+                               <Source>[spec_noise]</Source>
+                               <Dest>spec_noise</Dest>
+                           </Entry>  
+                            <Entry>
+                                <Source>[spec_noiseagg]</Source>
+                                <Dest>spec_noiseagg</Dest>
+                            </Entry> 
+                            <Entry>
+                                <Source>[spec_rl]</Source>
+                                <Dest>spec_rl</Dest>
+                            </Entry>
+                            <Entry>
+                                <Source>[start]</Source>
+                                <Dest>start</Dest>
+                            </Entry>
+                            <Entry>
+                                <Source>[startagg]</Source>
+                                <Dest>startagg</Dest>
+                            </Entry>
+                         </Call>                  
+                    </Calls>
+                    <Parms>
+                        <Entry>
+                            <Source>[bin_hi]</Source>
+                            <Dest>bin_hi</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[bin_hiagg]</Source>
+                            <Dest>bin_hiagg</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[bin_low]</Source>
+                            <Dest>bin_low</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[bin_lowagg]</Source>
+                            <Dest>bin_lowagg</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[cm_max_on]</Source>
+                            <Dest>cm_max_on</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[cm_max_onagg]</Source>
+                            <Dest>cm_max_onagg</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[cut]</Source>
+                            <Dest>cut</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[cutagg]</Source>
+                            <Dest>cutagg</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[fftl]</Source>
+                            <Dest>fftl</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[fftlagg]</Source>
+                            <Dest>fftlagg</Dest>
+                        </Entry>
+                        <Entry>
+                            <Source>[filter]</Source>
+                            <Dest>filter</Dest>
+                        </Entry>
+                    </Parms>
+                </Detection>
+                
+   
+            </Sheet>
+            
+            
+        </Directives>
+ 
+    
+</Mapping>
