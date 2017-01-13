@@ -14,9 +14,7 @@
             <Name>xsi:schemaLocation </Name> 
             <Value>http://tethys.sdsu.edu/schema/1.0 tethys.xsd</Value>
         </Attribute>
-    </DocumentAttributes>
-    
-    
+    </DocumentAttributes>   
     <Directives>
         <Localization_id>
             <Sheet name="MetaData">
