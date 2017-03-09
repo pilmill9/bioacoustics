@@ -1,0 +1,404 @@
+<Mapping>
+  <Name>SIO.SWAL.Loc.v1</Name>
+	
+  <!-- These are attributes that will appear in the generated document.
+       The ones listed here are mandatory and let XML know how to 
+       validate that the document to be added matches the schema (data layout)
+    -->
+  <DocumentAttributes>
+   
+  </DocumentAttributes>
+  
+  <!-- Directives contains the information indicating how data is to be transformed... -->
+  <Directives>
+    <Localizations>  <!-- Name of document that we produce -->
+      <Sheet name="MetaData">
+	<Description>
+	  <Entry>
+	    <Source> [Objectives] </Source>
+	    <Dest> Objectives </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Abstract] </Source>
+	    <Dest> Abstract </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Method] </Source>
+	    <Dest> Method </Dest>
+	  </Entry>
+	</Description>
+	
+	<DataSource>
+	  <Entry>
+	    <Source> [Project] </Source>
+	    <Dest> Project </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Deployment] </Source>
+	    <Dest> Deployment </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Site] </Source>
+	    <Dest> Site </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [User_id] </Source>
+	    <Dest> User_id </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Localization_id] </Source>
+	    <Dest> Localization_id</Dest>
+	  </Entry>
+	</DataSource>
+	
+	<Algorithm>
+	  <Entry>
+	    <Source> [Method] </Source>
+	    <Dest> Method </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Software] </Source>
+	    <Dest> Software </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Version] </Source>
+	    <Default> unknown </Default>
+	    <Dest> Version </Dest>
+	  </Entry>
+	  
+	  <Entry>
+	      <Source> [SupportSoftware] </Source>
+	      <Dest> SupportSoftware> </Dest>
+	  </Entry>
+	</Algorithm>
+	<Entry>
+	  <Source> [User ID] </Source>
+	  <Dest> UserID </Dest>
+	</Entry>	  
+      </Sheet>
+	  
+      <Effort>
+	<Sheet name="MetaData">
+	  <Entry>
+	    <Source> [Effort Start] </Source>
+	    <Kind> DateTime </Kind>
+	    <Dest> Start </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Effort End] </Source>
+	    <Kind> DateTime </Kind>
+	    <Dest> End </Dest>
+	  </Entry>
+	</Sheet>
+	
+	<Sheet name="Effort" >
+	  <Kind>
+	    <Entry>
+	      <Source> [Species Code] </Source>
+	      <Dest> SpeciesID </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [Call] </Source>
+	      <Dest> Call </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [Common Name] </Source>
+	      <Dest> CommonName </Dest>
+	    </Entry>
+	  </Kind>
+	</Sheet>
+     </Effort>
+	  
+      <OnEffort>
+	<Sheet name="Detections">
+	  <Localize>
+	   <Entry>
+	      <Source> [ID] </Source>
+	      <Dest>ID </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [call_start] </Source>
+	      <Dest> Start </Dest>
+	    </Entry>
+		
+		
+		<Entry>
+	      <Source> [call_end] </Source>
+	      <Dest> End </Dest>
+	    </Entry>
+	    
+		
+	    <Entry>
+	      <Source> [call_spec_noise] </Source>
+	      <Dest> call_noise </Dest>
+	    </Entry>
+		
+	    <Entry>
+	      <Source> [call_spec_rl] </Source>
+	      <Dest> call_rl</Dest>
+	    </Entry>
+		
+		
+	    <Entry>
+	      <Source> [cm_max_index] </Source>
+		   <kind>integer</kind>
+	      <Dest> cm_max_index</Dest>
+	    </Entry>
+		
+		<Entry>
+	      <Source> [cm_max_scale] </Source>
+		   <kind>integer</kind>
+	      <Dest>cm_max_scale</Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max_size] </Source>
+		   <kind>integer</kind>
+	      <Dest> cm_max_size</Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max_values] </Source>
+		  <kind>integer</kind>
+	      <Dest> cm_max_values</Dest>
+	    </Entry>
+
+	  </Localize>
+	</Sheet>
+	
+	<Sheet name="Parms" >
+	 <Parms>
+	    <Entry>
+	      <Source> [bin_hi] </Source>
+		  <kind> integer </kind>
+	      <Dest> bin_hi </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [bin_lo] </Source>
+		  <kind> integer </kind>
+	      <Dest> bin_lo </Dest>
+	    </Entry>
+
+		<Entry>
+	      <Source> [cm_max_on] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max_on </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max2_on] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max2_on </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_on] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_on </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cut] </Source>
+		  <kind> integer </kind>
+	      <Dest> cut </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [fftl] </Source>
+		  <kind> integer </kind>
+	      <Dest> fftl </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [filter] </Source>
+		  <kind> integer </kind>
+	      <Dest> filter </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [freq_hi] </Source>
+		  <kind> integer </kind>
+	      <Dest> freq_hi </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [freq_lo] </Source>
+		  <kind> integer </kind>
+	      <Dest> freq_lo </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [loop] </Source>
+		  <kind> integer </kind>
+	      <Dest> loop </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [max_call] </Source>
+		  <kind> integer </kind>
+	      <Dest> max_call </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max_bandwidth] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max_bandwidth </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max_duration] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max_duration </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max2_bandwidth] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max2_bandwidth </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [cm_max2_duration] </Source>
+		  <kind> integer </kind>
+	      <Dest> cm_max2_duration </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [slope] </Source>
+		  <kind> integer </kind>
+	      <Dest> slope </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [spec_noise] </Source>
+		  <kind> integer </kind>
+	      <Dest> spec_noise </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [spec_rl] </Source>
+		  <kind> integer </kind>
+	      <Dest> spec_rl </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [measurements] </Source>
+		  <kind> integer </kind>
+	      <Dest> measurements </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [merge] </Source>
+		  <kind> integer </kind>
+	      <Dest> merge </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [min_call] </Source>
+	      <Dest> min_call </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [nbin] </Source>
+		  <kind> integer </kind>
+	      <Dest> nbin </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [nfreq] </Source>
+		  <kind> integer </kind>
+	      <Dest> nfreq </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [noise_ceiling] </Source>
+		  <kind> integer </kind>
+	      <Dest> noise_ceiling </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [nreq] </Source>
+		  <kind> integer </kind>
+	      <Dest> nreq </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [overlap] </Source>
+		  <kind> integer </kind>
+	      <Dest> overlap </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [sample_freq] </Source>
+		  <kind> integer </kind>
+	      <Dest> sample_freq </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [skip] </Source>
+		  <kind> integer </kind>
+	      <Dest> skip </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [slope] </Source>
+		  <kind> integer </kind>
+	      <Dest> slope </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [sum_bin_hi] </Source>
+		  <kind> integer </kind>
+	      <Dest> sum_bin_hi </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [sum_bin_lo] </Source>
+		  <kind> integer </kind>
+	      <Dest> sum_bin_lo </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [sum_freq_hi] </Source>
+		  <kind> integer </kind>
+	      <Dest> sum_freq_hi </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [sum_freq_lo] </Source>
+		  <kind> integer </kind>
+	      <Dest> sum_freq_lo </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [template] </Source>
+		  <kind> integer </kind>
+	      <Dest> template </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [thresh] </Source>
+		  <kind> integer </kind>
+	      <Dest> thresh </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [waveform] </Source>
+		  <kind> integer </kind>
+	      <Dest> waveform</Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [white_x] </Source>
+		  <kind> integer </kind>
+	      <Dest> white_x </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [whiten] </Source>
+		  <kind> integer </kind>
+	      <Dest> whiten </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [xp1] </Source>
+		  <kind> integer </kind>
+	      <Dest> xp1</Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [xp2] </Source>
+		  <kind> integer </kind>
+	      <Dest> xp2 </Dest>
+	    </Entry>
+				
+	 </Parms>  
+	
+	</Sheet>
+    </OnEffort>
+
+	
+	<Sheet name="hydrophone_struct" >
+	 <Ensemble>
+	    <Entry>
+	      <Source> [name] </Source>
+	      <Dest> name </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [location] </Source>
+	      <Dest> location </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [depth] </Source>
+	      <Dest> depth</Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [channel] </Source>
+	      <Dest> channel </Dest>
+	    </Entry>
+	</Ensemble>
+	</Sheet>
+
+    </Localizations>
+  </Directives>
+</Mapping>
