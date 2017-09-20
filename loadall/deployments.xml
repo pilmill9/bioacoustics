@@ -1,0 +1,234 @@
+<Mapping>
+  <Name>deployments</Name>
+  <DocumentAttributes>
+    <Attribute> 
+      <Name>xmlns:ty</Name>
+      <Value>http://tethys.sdsu.edu/schema/1.0</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xmlns:xsi</Name>
+      <Value>http://www.w3.org/2001/XMLSchema-instance</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xsi:schemaLocation </Name> 
+      <Value>http://tethys.sdsu.edu/schema/1.0 tethys.xsd</Value>
+    </Attribute>
+  </DocumentAttributes>
+
+  <Directives>
+   <Deployment>
+ 
+  <Sheet name="Deployment">
+  
+     <Entry>
+	    <Source> [Project] </Source>
+		<Default>pmrf</Default>
+		<Dest> Project </Dest>
+     </Entry>
+	 
+	 <Entry>
+	    <Source> [DeploymentID] </Source>
+		<Dest> DeploymentID </Dest>
+     </Entry>
+	 
+	  <Entry>
+	    <Source> [Cruise] </Source>
+		<Default>Cruise0</Default>
+		<Dest> Site </Dest>
+     </Entry>
+	 
+	 <Entry>
+	    <Source> [Platform] </Source>
+		<Default>pmrf</Default>
+		<Dest> Platform </Dest>
+     </Entry>
+	 
+	 <Instrument>
+	 <Entry>
+	    <Source> [Type] </Source>
+		<Default>moorint</Default>
+		<Dest> Type</Dest>
+     </Entry>
+	 
+	 <Entry>
+	    <Source> [DeploymentID] </Source>
+		<Dest>ID</Dest>
+     </Entry>
+	 
+	 </Instrument>
+	 
+	 <Entry>
+	    <Source> [Site] </Source>
+		<Dest> Site </Dest>
+     </Entry>
+	 	  
+        <Entry>
+		<Source> [ID] </Source>
+		<Kind> Integer </Kind>
+		<Dest> ID </Dest>
+		</Entry>
+		
+		<Entry>
+        <Source>[Project]</Source>
+		<Dest>Project</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Site]</Source>
+		<Dest>Site</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Platform]</Source>
+		<Dest>Platform</Dest>
+		</Entry>  
+		
+		<Entry>
+		<Source>[Region]</Source>
+		<Dest>Region</Dest>
+		</Entry> 
+		
+	
+	
+	<SamplingDetails><Channel>
+	    
+		<Entry>
+		<Source>[ChannelNumber]</Source>
+		<Default>0</Default>
+		<Dest>ChannelNumber</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[SensorNumber]</Source>
+		<Default>0</Default>
+		<Dest>SensorNumber</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[Start]</Source>
+		<Dest>Start</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[End]</Source>
+		<Dest>End</Dest>
+		</Entry> 
+		<Sampling><Regimen>
+		<Entry>
+		<Source>[Start]</Source>
+		<Kind>DateTime</Kind>
+		<Dest>TimeStamp</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[SampleRate_kHz]</Source>
+		<Default>0</Default>
+		<Dest>SampleRate_kHz</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[SampleBits]</Source>
+		<Default>0</Default>
+		<Dest>SampleBits</Dest>
+		</Entry> 
+
+		</Regimen></Sampling>
+	</Channel></SamplingDetails>
+
+	<QualityAssurance>
+
+	<Description>
+		<Entry>
+		<Source>[Objectives]</Source>
+		<Default>Retrieve quality data</Default>
+		<Dest>Objectives</Dest>
+		</Entry> 
+	
+	</Description>
+
+	<ResponsibleParty>
+		<Entry>
+		<Source>[organizationName]</Source>
+		<Default>UCSD</Default>
+		<Dest>organizationName</Dest>
+		</Entry> 
+
+	</ResponsibleParty>
+	
+	<Quality>
+		<Entry>
+		<Source>[Start]</Source>
+		<Kind>DateTime</Kind>
+		<Dest>Start</Dest>
+		</Entry> 
+		<Entry>
+		<Source>[End]</Source>
+		<Kind>DateTime</Kind>
+		<Dest>End</Dest>
+		</Entry>
+		<Entry>
+		<Source>[Category]</Source>
+		<Default>unverified</Default>
+		<Dest>Category</Dest>
+		</Entry>
+	
+	</Quality>
+	</QualityAssurance>
+	<Data><Audio>
+		<Entry>
+		<Source>[URI]</Source>
+		<Default>test</Default>
+		<Dest>URI</Dest>
+		</Entry>
+		<Entry>
+		<Source>[Processed]</Source>
+		<Default>test</Default>
+		<Dest>Processed</Dest>
+		</Entry>
+		
+		</Audio></Data>
+		
+		<DeploymentDetails>
+		<Entry>
+		<Source>[Longitude]</Source>
+		<Dest>Longitude</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Latitude]</Source>
+		<Dest>Latitude</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[DepthInstrument_m]</Source>
+		<Dest>DepthInstrument_m</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Start]</Source>
+		<Kind>DateTime</Kind>
+		<Dest>TimeStamp</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Start]</Source>
+		<Kind>DateTime</Kind>
+		<Dest>AudioTimeStamp</Dest>
+		</Entry>
+		<Vessel></Vessel>
+		
+		<ResponsibleParty>
+		<Entry>
+		<Source>[organizationName]</Source>
+		<Default>UCSD</Default>
+		<Dest>organizationName</Dest>
+		</Entry> 
+
+	</ResponsibleParty>
+		
+	</DeploymentDetails>
+	
+	<Sensors></Sensors>
+   </Sheet>
+   
+   </Deployment>
+ 
+  </Directives>
+  </Mapping>
+  
+  

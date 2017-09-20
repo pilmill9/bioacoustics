@@ -1,0 +1,214 @@
+<Mapping>
+  <Name>SIO.detdex26</Name>
+	
+  <!-- These are attributes that will appear in the generated document.
+       The ones listed here are mandatory and let XML know how to 
+       validate that the document to be added matches the schema (data layout)
+    -->
+  <DocumentAttributes>
+    <Attribute> 
+      <Name>xmlns:ty</Name>
+      <Value>http://tethys.sdsu.edu/schema/1.0</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xmlns:xsi</Name>
+      <Value>http://www.w3.org/2001/XMLSchema-instance</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xsi:schemaLocation </Name> 
+      <Value>http://tethys.sdsu.edu/schema/1.0 tethys.xsd</Value>
+    </Attribute>
+  </DocumentAttributes>
+  
+  <!-- Directives contains the information indicating how data is to be transformed... -->
+  <Directives>
+    <Detections>  <!-- Name of document that we produce -->
+      <Sheet name="MetaData">
+	<Description>
+	  <Entry>
+	    <Source> [Objectives] </Source>
+	    <Default> Find relatively good clicks and do not oversample. </Default>
+	    <Dest> Objectives </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Abstract] </Source>
+	    <Dest> Abstract </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Method] </Source>
+	    <Dest> Method </Dest>
+	  </Entry>
+	</Description>
+	<DataSource>
+	  <Entry>
+	    <Source> [Project] </Source>
+	    <Dest> Project </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Deployment] </Source>
+	    <Kind> integer </Kind>
+	    <Dest> Deployment </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Site] </Source>
+	    <Dest> Site </Dest>
+	  </Entry>
+	</DataSource>
+	<Algorithm>
+	  <Entry>
+	    <Source> [Method] </Source>
+	    <Dest> Method </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Software] </Source>
+	    <Dest> Software </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Version] </Source>
+	    <Default> unknown </Default>
+	    <Dest> Version </Dest>
+	  </Entry>
+	  <Parameters>
+	    <LowRes>
+	      <Entry>
+		  <Source> [Threshold_dB]</Source>
+		  <Dest> Threshold_dB </Dest>
+	      </Entry>
+	      <FrequencyRange>
+		<Entry>
+		  <Source> [RangeMin_Hz]</Source>
+		  <Dest> Min_Hz </Dest>
+		</Entry>
+		<Entry>
+		  <Source> [RangeMax_Hz]</Source>
+		  <Dest> Max_Hz </Dest>
+		</Entry>
+	      </FrequencyRange>
+	      <Saturation>
+		<Entry>
+		  <Source> [SaturationMin_Hz]</Source>
+		  <Dest> Min_Hz </Dest>
+		</Entry>
+		<Entry>
+		  <Source> [SaturationMax_Hz]</Source>
+		  <Dest> Max_Hz </Dest>
+		</Entry>
+	      </Saturation>
+	    </LowRes>
+	    <HighRes>
+	      <Entry>
+		<Source> [Select] </Source>
+		<Dest> Select </Dest>
+	      </Entry>
+	      <Entry>
+		<Source> [GroupSep_s] </Source>
+		<Dest> GroupSep_s </Dest>
+	      </Entry>
+	      <Entry>
+		<Source> [GroupLen_s] </Source>
+		<Dest> GroupLen_s </Dest>
+	      </Entry>
+	      <Entry>
+		<Source> [FrameLen_us] </Source>
+		<Dest> FrameLen_us </Dest>
+	      </Entry>
+	      <Entry>
+		<Source> [Features] </Source>
+		<Dest> Features </Dest>
+	      </Entry>
+	      <Entry>
+		<Source> [NoiseComp] </Source>
+		<Dest> NoiseComp </Dest>
+	      </Entry>
+	      
+	    </HighRes>
+	    
+	  </Parameters>
+	  <Entry>
+	      <Source> [SupportSoftware] </Source>
+	      <Dest> SupportSoftware> </Dest>
+	  </Entry>
+	</Algorithm>
+	<Entry>
+	  <Source> [User_ID] </Source>
+	  <Dest> UserID </Dest>
+	</Entry>	  
+      </Sheet>
+      <Effort>
+	<Sheet name="MetaData">
+	  <Entry>
+	    <Source> [Effort_Start] </Source>
+	    <Kind> DateTime </Kind>
+	    <Dest> Start </Dest>
+	  </Entry>
+	  <Entry>
+	    <Source> [Effort_End] </Source>
+	    <Kind> DateTime </Kind>
+	    <Dest> End </Dest>
+	  </Entry>
+	</Sheet>
+	<Sheet name="Effort" parameters="define">
+	  <Kind>
+	    <Entry>
+	      <Source> [Species_Code] </Source>
+	      <Kind> speciescode </Kind>
+	      <Dest> SpeciesID </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [Call] </Source>
+	      <Kind> Calltype </Kind>
+	      <Dest> Call </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [*Parameters] </Source>
+	      <Dest> Parameters </Dest>
+	    </Entry>
+	    <Entry>
+	      <Attribute> 
+		<Source> [BinSize_m] </Source>
+		<Default> 1.25 </Default>
+		<Dest> BinSize_m </Dest>
+	      </Attribute>
+	      <Source> [Granularity] </Source>
+	      <Default> binned </Default>
+	      <Dest> Granularity </Dest>
+	    </Entry>		  
+	  </Kind>
+	</Sheet>
+      </Effort>
+      <OnEffort>
+	<Sheet name="Detections">
+	  <Detection>
+	    <Entry>
+	      <Source> [Start] </Source>
+	      <Kind> DateTime </Kind>
+	      <Dest> Start </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [Stop] </Source>
+	      <Kind> DateTime </Kind>
+	      <Dest> End </Dest>
+	    </Entry>
+		<Entry>
+	      <Source> [Event] </Source>
+		  <Kind> integer </Kind>
+		  <Dest> Event </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [Species_Code] </Source>
+	      <Kind> speciescode </Kind>
+	      <Default> UO </Default>
+	      <Dest> SpeciesID </Dest>
+	    </Entry>
+	    <Entry>
+	      <Source> [Call] </Source>
+		  <Kind> Calltype </Kind>
+	      <Default> Clicks </Default>
+	      <Dest> Call </Dest>
+	    </Entry>
+	  </Detection>
+	</Sheet>
+      </OnEffort>
+    </Detections>
+  </Directives>
+</Mapping>

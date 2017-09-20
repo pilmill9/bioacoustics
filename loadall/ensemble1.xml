@@ -1,0 +1,66 @@
+<Mapping>
+
+  <Name>SIO.ensemble1</Name>
+
+  <DocumentAttributes>
+
+    <Attribute> 
+      <Name>xmlns:ty</Name>
+      <Value>http://tethys.sdsu.edu/schema/1.0</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xmlns:xsi</Name>
+      <Value>http://www.w3.org/2001/XMLSchema-instance</Value>
+    </Attribute>
+    <Attribute>
+      <Name>xsi:schemaLocation </Name> 
+      <Value>http://tethys.sdsu.edu/schema/1.0 tethys.xsd</Value>
+    </Attribute>
+  </DocumentAttributes>
+
+  <Directives>
+   <Ensemble>
+ 
+  <Sheet name="Name">
+  
+  <Entry>
+	    <Source> [Name] </Source>
+		<Dest> Name </Dest>
+   </Entry>
+  
+  </Sheet>
+  
+  <Sheet name="Units">
+  
+  <Unit>
+        <Entry>
+		<Source> [ID] </Source>
+		<Kind> Integer </Kind>
+		<Dest> ID </Dest>
+		</Entry>
+		
+		<Entry>
+        <Source>[Project]</Source>
+		<Dest>Project</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Site]</Source>
+		<Kind> integer </Kind>
+		<Dest>Site</Dest>
+		</Entry>
+		
+		<Entry>
+		<Source>[Deployment]</Source>
+		<Kind> integer </Kind>
+		<Dest>Deployment</Dest>
+		</Entry>  
+   </Unit>
+   </Sheet>
+   
+   </Ensemble>
+ 
+  </Directives>
+  </Mapping>
+
+	
